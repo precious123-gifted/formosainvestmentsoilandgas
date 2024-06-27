@@ -67,14 +67,14 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   <Image
     src={backgroundImage2}
     alt="Background"
-    className="object-cover  landscape:hidden"
+    className="object-cover rounded-lg landscape:hidden"
   />
 </div>
 <div className="headersection absolute  h-full portrait:h-[70%] pt-10 portrait:pt-[10vw] portrait:justify-between flex flex-col items-center   w-full">
 
 <div className="btn-div  h-[10vw] portrait:h-[30vw] w-[90%] flex flex-col justify-between items-center"> 
-<div ref={header} className="header1 opacity-0 text-[4vw]  portrait:text-[6vw] text-center leading-tight  tracking-free  text-[#FBFFFE]">{slice.primary.header1}</div>
-<div ref={header2} className="header1 opacity-0 text-[3vw]  portrait:text-[5vw] text-center leading-tight  tracking-free text-[#FBFFFE]">{slice.primary.header2}</div>
+<div ref={header} className="header1 opacity-0 text-[4vw]  portrait:text-[7vw] text-center leading-tight  tracking-free  text-[#FBFFFE]">{slice.primary.header1}</div>
+<div ref={header2} className="header1 opacity-0 text-[3vw]  portrait:text-[6vw] text-center leading-tight  tracking-free text-[#FBFFFE]">{slice.primary.header2}</div>
 </div>
 
 
