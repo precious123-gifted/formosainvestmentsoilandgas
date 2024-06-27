@@ -1,0 +1,154 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "navigation": {
+        "type": "Group",
+        "config": {
+          "label": "navigation",
+          "repeat": true,
+          "fields": {
+            "petroleum_products": {
+              "type": "Link",
+              "config": {
+                "label": "petroleum products",
+                "placeholder": "Petroleum Products",
+                "allowTargetBlank": false,
+                "select": null
+              }
+            },
+            "services": {
+              "type": "StructuredText",
+              "config": {
+                "label": "services",
+                "placeholder": "Services",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "about": {
+              "type": "Link",
+              "config": {
+                "label": "about",
+                "placeholder": "About",
+                "allowTargetBlank": false,
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "services": {
+        "type": "Group",
+        "config": {
+          "label": "services",
+          "repeat": true,
+          "fields": {
+            "offshore_intake_and_offtake": {
+              "type": "Link",
+              "config": {
+                "label": "offshore intake and offtake",
+                "placeholder": "Offshore Intake and Offtake Facilities",
+                "allowTargetBlank": false,
+                "select": null
+              }
+            },
+            "petroleum_and_gas_marketing": {
+              "type": "Link",
+              "config": {
+                "label": "petroleum and gas marketing",
+                "placeholder": "Petroleum and Gas Marketing",
+                "allowTargetBlank": false,
+                "select": null
+              }
+            },
+            "petroleum_and_gas_storage": {
+              "type": "Link",
+              "config": {
+                "label": "petroleum and gas storage",
+                "placeholder": "Petroleum and Gas Storage",
+                "allowTargetBlank": false,
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "about": {
+        "type": "Group",
+        "config": {
+          "label": "about",
+          "repeat": true,
+          "fields": {
+            "who_we_are": {
+              "type": "Link",
+              "config": {
+                "label": "who we are",
+                "placeholder": "Who We Are",
+                "allowTargetBlank": false,
+                "select": null
+              }
+            },
+            "mission_and_vision": {
+              "type": "Link",
+              "config": {
+                "label": "mission and vision",
+                "placeholder": "Mission and Vision",
+                "allowTargetBlank": false,
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "company_title": {
+        "type": "Text",
+        "config": {
+          "label": "company title",
+          "placeholder": ""
+        }
+      },
+      "company_description": {
+        "type": "Text",
+        "config": {
+          "label": "company description",
+          "placeholder": ""
+        }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": {
+          "label": "OG image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "email",
+          "placeholder": ""
+        }
+      },
+      "phonenumber": {
+        "type": "Text",
+        "config": {
+          "label": "phonenumber",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
