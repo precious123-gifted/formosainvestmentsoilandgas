@@ -120,7 +120,7 @@ const navigation = {
 
 
   return (
-    <div className="w-[98%] portrait:flex-col portrait:flex">
+    <div className="w-[98%] portrait:w-[96%] portrait:flex-col portrait:flex">
        <div className="content w-full  flex flex-row justify-between items-center relative  pt-2">
 <div ref={logo} className="logo opacity-0 cursor-pointer object-contain  w-[15vw] portrait:w-[32vw]  pb-1  ">
   <Link
