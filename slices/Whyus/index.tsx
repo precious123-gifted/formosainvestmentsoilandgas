@@ -30,7 +30,7 @@ const Whyus = ({ slice }: WhyusProps): JSX.Element => {
   <div className=" content w-full  flex   portrait:flex-col rounded-xl relative">
 
 <div className="headersection space-y-6 landscape:pt-14  portrait:pt-6 text-center h-full  flex flex-col items-center w-full">
-<div ref={header} className="header opacity-1 text-[3vw] portrait:text-[6vw]">{slice.primary.header}</div>
+<div ref={header} className="header opacity-1 text-[3vw] portrait:text-[6vw] portrait:sm:mb-8">{slice.primary.header}</div>
 <div ref={ writeup} className="writeup opacity-1 text-[1.4vw] portrait:text-[4.3vw]">{slice.primary.writeup1}</div>
 <div ref={ writeup} className="writeup opacity-1 text-[1.4vw] portrait:text-[4.3vw]">{slice.primary.writeup2}</div>
 
