@@ -74,7 +74,7 @@ const Homeproducts = ({ slice }: HomeproductsProps): JSX.Element => {
 
       <div className="btn-div   w-full flex flex-col  items-center"> 
         <div className="btn_writeup_lead text-center mb-8 portrait:mb-14 mt-4 text-[2vw]  portrait:text-[6vw] portrait:sm:text-[3vw]">{slice.primary.button_intro_text}</div>
- <PrismicNextLink  field={slice.primary.all_products_button}> <div ref={button} className="button  bg-[#333D3E] text-[#EBFEFF] cursor-pointer portrait:px-[22vw] px-[8vw] py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.2s]  ease-in-out "> All Products</div> </PrismicNextLink> 
+ <PrismicNextLink  field={slice.primary.all_products_button}> <div ref={button} className="button  bg-[#423B17] text-[#EDF4F6] cursor-pointer portrait:px-[22vw] px-[8vw] py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.2s]  ease-in-out "> All Products</div> </PrismicNextLink> 
   
    </div>
       </div>
