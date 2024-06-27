@@ -22,8 +22,8 @@ children,
 
 }:BoundedProps) {
   return (
-    <Comp className={clsx("w-full py-[2vw]  h-fit flex bg-[#EBFEFF] backdrop-filter backdrop-blur-md flex-col  items-center overflow-x-hidden  ",className)  } {...restProps} style={pontanoSans.style}>
-      <div className={clsx("wall   w-[95%] h-full ",className)} {...restProps}  >{children}</div>
+    <Comp className={clsx("w-full  h-fit flex bg-[#EBFEFF] backdrop-filter backdrop-blur-md flex-col  items-center overflow-x-hidden  ",className)  } {...restProps} style={pontanoSans.style}>
+      <div className={clsx("wall   w-[98%] h-full ",className)} {...restProps}  >{children}</div>
     </Comp>
   )
 }

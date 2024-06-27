@@ -120,7 +120,7 @@ const navigation = {
 
 
   return (
-    <div className="w-[95%] portrait:flex-col portrait:flex">
+    <div className="w-[98%] portrait:flex-col portrait:flex">
        <div className="content w-full  flex flex-row justify-between items-center relative  pt-2">
 <div ref={logo} className="logo opacity-0 cursor-pointer object-contain  w-[15vw] portrait:w-[32vw]  pb-1  ">
   <Link
@@ -130,15 +130,7 @@ const navigation = {
 
 
 <div className="cartNmenuDiv landscape:hidden flex items-center  relative space-x-8 portrait:sm:space-x-14">
-<div ref={carticon} className="carticon opacity-0 cursor-pointer object-contain relative  rounded-sm">
-{ cartLength! > 0 && (<Link href={"/cart"}><div className="itemQuantity text-[3.5vw] portrait:sm:text-[2.5vw] p-[0.1vw]  w-5 portrait:sm:w-[4.4vw] bg-[#31503d] text-[#E2CABE] text-center rounded-full absolute top-[-0.8rem] ">{cartLength}</div></Link>)}
-  <Link 
-onClick={menuBackAnimation}
-  
-  href={"/cart"}>
-    <Image  src={cartIcon} alt="cart icon" className="w-[8vw] portrait:sm:w-[7vw]"/>
-    </Link>
-</div>
+
 
 <div  className="icon ">
 
@@ -199,7 +191,7 @@ const lastLink = '/about'
 
 
 
-<div ref={menudiv} className="menu opacity-0 landscape:hidden w-full left-0 h-[24vw] bg-[#31503d] text-[#e9e2e0]   absolute z-50 top-[-30vw] flex justify-center items-center ">
+<div ref={menudiv} className="menu opacity-0 landscape:hidden w-full left-0 h-[24vw] bg-[#162226] text-[#e9e2e0]   absolute z-50 top-[-30vw] flex justify-center items-center ">
 
 <ul  className=" flex justify-between w-[80%] text-[6vw] space-x-[6vw]">
 

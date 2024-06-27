@@ -119,17 +119,8 @@ export const StateProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
 const[menu,setMenu] = useState(true)
 
-const fetchData = async () => {
-  const ProductsURL = `${baseUrl}/api/productsProcessedData`;
 
-  const response = await fetch(ProductsURL,{ next: { revalidate: 1 } }); 
-  const data = await response.json();
-  setFetchedData(data);
-};
 
-useEffect(() => {
-  fetchData();
-},[]);
 
   
   return <StateContext.Provider value={{ menu, setMenu ,items,setItems,cartedProducts, setCartedProducts,cartedProductsFromState, setCartedProductsFromState,cartLength, setCartLength,setFetchedData,fetchedData}}>{children}</StateContext.Provider>;
