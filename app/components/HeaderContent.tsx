@@ -61,16 +61,7 @@ const loadingAnimation = useEffect(()=>{
 
 
 
-  useEffect(() => {
-    const existingCartedProductsData = localStorage.getItem("cartedProducts");
 
-    if (!existingCartedProductsData) {
-      localStorage.setItem("cartedProducts", JSON.stringify([]));
-
-    } else {
-      setCartLength(JSON.parse(existingCartedProductsData).length);
-    }
-  }, []);
 
 
 
