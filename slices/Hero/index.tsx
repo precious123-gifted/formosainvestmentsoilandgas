@@ -70,7 +70,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
 <div className="btn-div  h-[10vw] portrait:h-[36vw] w-[90%] flex flex-col justify-between items-center"> 
 <div ref={header} className="header1 opacity-0 text-[4vw]  portrait:text-[7vw] text-center leading-tight  tracking-free  text-[#FBFFFE]">{slice.primary.header1}</div>
-<div ref={header2} className="header1 opacity-0 text-[3vw]  portrait:text-[6vw] text-center leading-tight  tracking-free text-[#FBFFFE]">{slice.primary.header2}</div>
+<div ref={header2} className="header1 opacity-0 text-[3vw]  portrait:text-[6vw] text-center leading-tight  tracking-free portrait:hidden text-[#FBFFFE]">{slice.primary.header2}</div>
 </div>
 
 
