@@ -16,7 +16,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
     data-slice-type={slice.slice_type}
     data-slice-variation={slice.variation}
 
-    className="pt-10 pb-[10vw] portrait:pb-[20vw] rounded  text-[#333D3E] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
+    className="pt-10 pb-[10vw] portrait:pb-[20vw] rounded bg-[#EDF4F6] text-[#333D3E] space-y-10  portrait:space-y-80 portrait:sm:space-y-40"
   >
    
 
