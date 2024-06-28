@@ -38,7 +38,7 @@ const Allproducts = ({ slice }: AllproductsProps): JSX.Element => {
             id={product._id}
             ref={productrefs.current[index] = React.createRef<HTMLDivElement>()}
             // onClick={()=>{microActionOnProductClick(productrefs.current[index])}}
-            className="hairProduct   transition duration-200 ease-in
+            className="hairProduct   transition duration-200 ease-in-out 
               w-auto flex flex-col items-center text-start  space-y-1"
           >
             <div className="flex flex-col items-start">
