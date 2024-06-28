@@ -8,6 +8,7 @@ import instagramIcon from "../../public/instagramIcon.png";
 import facebookIcon from "../../public/facebookIcon.png";
 import footerBG from "../../public/footer_bg.png"
 import formosaIMG from "../../public/FORMOSA.png"
+import Link from "next/link";
 
 
 
@@ -17,6 +18,9 @@ export default async function Footer() {
     const client = createClient()
 
     const settings = await client.getSingle('settings')
+
+let about = '/about'
+
 
   return (
     <Bounded>
@@ -39,10 +43,10 @@ export default async function Footer() {
 
 <div className="addressNpolicySection space-y-3 landscape:w-[40%] portrait:sm:w-[100%]">
 
-<div className="addressDiv space-y-1">
+<div className="addressDiv relative space-y-1">
   <div className="title text-[1.7vw] portrait:sm:text-[4vw] portrait:text-[7vw]">About Us</div>
-  <div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw] ">Who We Are</div>
-  <div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">Mission and Vision</div>
+ <Link href={'/about'}> <div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw] ">Who We Are</div></Link>
+ <Link href={'/missionandvision'}><div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">Mission and Vision</div></Link>
 </div>
 
 
