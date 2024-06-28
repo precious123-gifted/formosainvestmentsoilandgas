@@ -14,7 +14,6 @@ import MenuSvg from "@/app/components/menuSvg"
 import displayElementWhenPageLoads from "../animation-provider/animation";
 import { usePathname } from 'next/navigation'
 import { cn } from "@/lib/utils";
-import DropDownStyle from "./dropdpwnmenu.module.css"
 
 
 export default function HeaderContent({settings}: any) {
@@ -145,18 +144,11 @@ const serviceTXT = useRef<HTMLDivElement>(null);
 <div ref={desktoplinks} className="links opacity-0 px-1 portrait:hidden w-auto space-x-[4vw] flex items-center  bg-[#FBFFFE] rounded-3xl ">
 <ul  className=" flex justify-between items-center w-[80%] text-[1.5vw] space-x-[6vw]">
 
-<div  className={DropDownStyle.hoverstate}>
+ 
+<Link href={"/#services"}>
 <div ref={serviceTXT} className="services-text  px-3 py-2 rounded hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323] rounded-l-3xl shadow-lg">
     Services
-  </div>
-  <div className={DropDownStyle.dropdown}></div>
-  <div className={cn("services_dropdown  bg-[#FBFFFE] absolute z-50 mt-10 py-4 px-4 space-y-2 flex flex-col rounded-md  shadow-lg"
-  )} >
-   <Link href={"/#services"}> <div className="service hover:bg-[#e0f3e6] p-2 rounded-md">Offshore Intake-Offtake Facilities</div></Link>
-   <Link href={"/#services"}> <div className="service hover:bg-[#e0f3e6] p-2 rounded-md">Petroleum and Gas Marketing</div></Link>
-   <Link href={"/#services"}>  <div className="service hover:bg-[#e0f3e6] p-2 rounded-md">Petroleum and Gas Storage</div></Link>
-  </div>
-</div> 
+  </div></Link>
 
 {Object.values(navigation).map(({link,label,key}:forString)=>
 {
