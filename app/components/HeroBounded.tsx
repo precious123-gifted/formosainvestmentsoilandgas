@@ -23,7 +23,7 @@ children,
 }:BoundedProps) {
   return (
     <Comp className={clsx("w-full  h-fit flex bg-[#162226] backdrop-filter backdrop-blur-md flex-col  items-center overflow-x-hidden  ",className)  } {...restProps} style={pontanoSans.style}>
-      <div className={clsx("wall   w-[98%] portrait:w-[96%] h-full ",className)} {...restProps}  >{children}</div>
+      <div className={clsx("wall   w-[98%] portrait:w-[96%] h-full relative ",className)} {...restProps}  >{children}</div>
     </Comp>
   )
 }

@@ -37,11 +37,11 @@ const Enquiry = ({ slice }: EnquiryProps): JSX.Element => {
 <form action="" className="flex flex-col items-center">
 
 <div className="inputs w-full grid  portrait:grid-cols-1 landscape:grid-cols-2  gap-5 portrait:gap-[6vw] portrait:sm:gap-y-[6vw]   gap-y-6">
-<input required type="text" className='brandname outline-none h-[3vw] portrait:h-[14vw] px-3 text-[#EDF4F6] bg-[#2F3D47] rounded-md' name="brandname" placeholder='Add a Brand Name'  />
-<input required type="text" className='title outline-none h-[3vw] portrait:h-[14vw] px-3 text-[#EDF4F6] bg-[#2F3D47] rounded-md' name="title" placeholder='Add a Title' />
-<input required type="text" className='shortdescription outline-none h-[3vw] portrait:h-[14vw] px-3 text-[#EDF4F6] bg-[#2F3D47] rounded-md' name="shortdescription" placeholder='Add a Short Description' />
-<input required type="text" className='shortdescription outline-none h-[3vw] portrait:h-[14vw] px-3 text-[#EDF4F6] bg-[#2F3D47] rounded-md' name="shortdescription" placeholder='Add a Short Description' />
-<textarea required  className='fulldescription w-[48.5vw] portrait:w-full outline-none h-[12vw] resize-none portrait:h-[28vw] px-3 py-1 text-[#EDF4F6] bg-[#2F3D47] rounded-md'  name="fulldescription" placeholder='Add a full Description' />
+<input required type="text" className='brandname outline-none h-[3vw] portrait:h-[14vw] px-3 text-[#EDF4F6] bg-[#2F3D47] rounded-md' name="brandname" placeholder='Name'  />
+<input required type="text" className='title outline-none h-[3vw] portrait:h-[14vw] px-3 text-[#EDF4F6] bg-[#2F3D47] rounded-md' name="title" placeholder='Company Name' />
+<input required type="text" className='shortdescription outline-none h-[3vw] portrait:h-[14vw] px-3 text-[#EDF4F6] bg-[#2F3D47] rounded-md' name="shortdescription" placeholder='Email' />
+<input required type="text" className='shortdescription outline-none h-[3vw] portrait:h-[14vw] px-3 text-[#EDF4F6] bg-[#2F3D47] rounded-md' name="shortdescription" placeholder='Phone Number' />
+<textarea required  className='fulldescription w-[48.5vw] portrait:w-full outline-none h-[12vw] resize-none portrait:h-[28vw] px-3 py-1 text-[#EDF4F6] bg-[#2F3D47] rounded-md'  name="fulldescription" placeholder='Write down Your Enquiry' />
 </div>
 
 <button type="submit" className="btn mt-10  portrait:w-full bg-[#423B17] text-[#EDF4F6] cursor-pointer portrait:px-[22vw] px-[6vw] py-3 rounded-[0.280rem] text-[1.8vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.2s]  ease-in-out ">Submit</button>

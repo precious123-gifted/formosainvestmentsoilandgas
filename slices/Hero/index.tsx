@@ -55,26 +55,24 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <Bounded
     data-slice-type={slice.slice_type}
     data-slice-variation={slice.variation}
-   className="   portrait:text-[#E7FEFF] portrait:pt-2 overflow-hidden " >
+   className="    portrait:pt-2  pt-2" >
    
-  <div className=" content w-full  flex pt-6  portrait:flex-col  h-[40vw] portrait:h-[80vh] object-fit">
-  <div className="hero bg-cover bg-no-repeat  overflow-hidden">
+  <div className=" content w-full  flex pt-10  portrait:flex-col  h-fit portrait:h-[80vh] ">
+  
   <Image
     src={backgroundImage}
     alt="Background"
-    className="object-cover h-[35vw] portrait:h-[60vh] rounded-lg  portrait:hidden"
+    layout="fill"
+    objectFit="cover"
+    priority
+    className="object-cover w-[98%]  portrait:h-[60vh] rounded-lg  "
   />
-  <Image
-    src={backgroundImage2}
-    alt="Background"
-    className="object-cover rounded-lg landscape:hidden"
-  />
-</div>
-<div className="headersection absolute  h-full portrait:h-[70%] portrait:sm:h-[86%] pt-10 portrait:pt-[10vw] portrait:justify-between flex flex-col items-center   w-full">
+ 
+<div className="headersection relative h-full portrait:h-[70%] portrait:sm:h-[86%] pt-10 portrait:pt-[10vw] portrait:justify-between flex flex-col items-center   w-full">
 
 <div className="btn-div  h-[10vw] portrait:h-[36vw] w-[90%] flex flex-col justify-between items-center"> 
-<div ref={header} className="header1 opacity-0 text-[4vw]  portrait:text-[7vw] text-center leading-tight  tracking-free  text-[#FBFFFE]">{slice.primary.header1}</div>
-<div ref={header2} className="header1 opacity-0 text-[3vw]  portrait:text-[6vw] text-center leading-tight  tracking-free text-[#FBFFFE]">{slice.primary.header2}</div>
+<div ref={header} className="header1 opacity-0 text-[4vw]  portrait:text-[7vw] text-center leading-tight  tracking-free  text-[#fdfffe]">{slice.primary.header1}</div>
+<div ref={header2} className="header1 opacity-0 text-[3vw]  portrait:text-[6vw] text-center leading-tight  tracking-free text-[#fdfffe]">{slice.primary.header2}</div>
 </div>
 
 
