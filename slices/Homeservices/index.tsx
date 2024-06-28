@@ -31,7 +31,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
     // data-slice-variation={slice.variation}
    className="  text-[#333D3E] bg-[#EDF4F6]" 
     >
-<div className="content w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
+<div id="services" className="content w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
 
         <div ref={headerref} className="heading  text-[3vw] portrait:sm:text-[7vw] portrait:text-[10vw]  portrait:mb-10">{slice.primary.header}</div>
 
@@ -50,7 +50,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
         {slice.primary.services_container.map((product:any,index:number) => (
           <div
             key={product._id}
-            id={product._id}
+            id={`services${index}`}
             ref={productrefs.current[index] = React.createRef<HTMLDivElement>()}
             // onClick={()=>{microActionOnProductClick(productrefs.current[index])}}
             className="hairProduct   transition duration-200 ease-in
