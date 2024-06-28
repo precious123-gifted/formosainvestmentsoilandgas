@@ -140,7 +140,7 @@ const navigation = {
 
 
 
-<div ref={desktoplinks} className="links opacity-0  portrait:hidden w-auto space-x-[4vw] flex items-center  bg-[#FBFFFE] rounded-3xl ">
+<div ref={desktoplinks} className="links opacity-0 px-1 portrait:hidden w-auto space-x-[4vw] flex items-center  bg-[#FBFFFE] rounded-3xl ">
 <ul  className=" flex justify-between items-center w-[80%] text-[1.5vw] space-x-[6vw]">
 <div  className={cn(
   'px-3 py-2 rounded hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323] rounded-l-3xl',
@@ -163,7 +163,7 @@ const lastLink = '/about'
 
  className={cn(
   'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] transition duration-300 ease-in-out text-[#0D2323] ',
-   logic && 'bg-[#7fac8c] text-[#e8f7ed] hover:text-[#e0f3e6]  shadow-lg ' ,link === lastLink && 'rounded-r-3xl'
+   logic && 'bg-[#162226] text-[#e8f7ed] hover:text-[#e0f3e6]  shadow-lg ' ,link === lastLink && 'rounded-r-3xl'
 )}
  >{label}</Link>
 

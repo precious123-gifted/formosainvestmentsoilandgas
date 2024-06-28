@@ -1,5 +1,10 @@
+"use client"
+
+import Bounded from "@/app/components/Bounded";
 import { Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
+import React, { MutableRefObject, useRef } from "react";
 
 /**
  * Props for `Allproducts`.
@@ -10,15 +15,47 @@ export type AllproductsProps = SliceComponentProps<Content.AllproductsSlice>;
  * Component for "Allproducts" Slices.
  */
 const Allproducts = ({ slice }: AllproductsProps): JSX.Element => {
+
+  type ProductRef = MutableRefObject<HTMLDivElement | null>;
+
+  const productrefs = useRef<ProductRef[]>([]);
+  const headerref = useRef(null)
+
+
+
+
+
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for allproducts (variation: {slice.variation})
-      Slices
-    </section>
+    <Bounded>
+
+<div   className="hairProductsContainer w-full grid  portrait:grid-cols-1 landscape:grid-cols-3  gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   gap-y-20"> 
+        {slice.primary.product.map((product:any,index:number) => (
+          <div
+            key={product._id}
+            id={product._id}
+            ref={productrefs.current[index] = React.createRef<HTMLDivElement>()}
+            // onClick={()=>{microActionOnProductClick(productrefs.current[index])}}
+            className="hairProduct   transition duration-200 ease-in
+              w-auto flex flex-col items-center text-start  space-y-1"
+          >
+            <div className="flex flex-col items-start">
+              <div className="productImage cursor-pointer w-[18vw] mb-3 portrait:w-full object-contain">
+                <PrismicNextImage  field={product.product_image} className="rounded-md"/>
+              </div>
+
+              <div className="productTitle w-[12vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"><div >{product.title}</div></div>
+            <div className="productDescription w-[20vw] portrait:w-full  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.description}</div>
+            </div>
+          </div>
+        ))}
+
+
+      </div>
+
+    </Bounded>
   );
 };
 
 export default Allproducts;
+
+
