@@ -106,13 +106,28 @@ const navigation = {
   },
  
 };
+const serviceTXT = useRef<HTMLDivElement>(null);
 
+const serviceDropdown = useRef(null)
+const [dropDown,setDropDown] = useState(false)
+useEffect(()=>{
+serviceTXT.current?.addEventListener('click',()=>{
+
+setDropDown(!dropDown)
+  
+
+})
+
+
+
+
+})
 
 
 
   return (
     <div className="w-[98%] portrait:w-[96%] portrait:flex-col portrait:flex">
-       <div className="content w-full  flex flex-row justify-between items-center relative  pt-2">
+       <div className="content w-full  flex flex-row justify-between items-center   pt-2">
 <div ref={logo} className="logo opacity-0 cursor-pointer object-contain  w-[15vw] portrait:w-[32vw]  pb-1  ">
   <Link
   onClick={menuBackAnimation}
@@ -143,12 +158,21 @@ const navigation = {
 <div ref={desktoplinks} className="links opacity-0 px-1 portrait:hidden w-auto space-x-[4vw] flex items-center  bg-[#FBFFFE] rounded-3xl ">
 <ul  className=" flex justify-between items-center w-[80%] text-[1.5vw] space-x-[6vw]">
 <div  className={cn(
-  'px-3 py-2 rounded hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323] rounded-l-3xl',
+  'px-3 py-2 rounded  hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323] rounded-l-3xl',
    ' shadow-lg '
 )}>
-Services
-
+<div ref={serviceTXT} className="services-text px-3 py-2 rounded hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323] rounded-l-3xl shadow-lg">
+    Services
+  </div>
+  <div ref={serviceDropdown} className={cn("services_dropdown opacity-0 bg-[#FBFFFE] absolute z-50 mt-10 py-4 px-4 space-y-2 flex flex-col rounded-md  shadow-lg",
+    dropDown && 'opacity-1'
+  )} >
+    <div className="service hover:bg-[#e0f3e6] p-2 rounded-md">Offshore Intake-Offtake Facilities</div>
+    <div className="service hover:bg-[#e0f3e6] p-2 rounded-md">Petroleum and Gas Marketing</div>
+    <div className="service hover:bg-[#e0f3e6] p-2 rounded-md">Petroleum and Gas Storage</div>
+  </div>
 </div> 
+
 {Object.values(navigation).map(({link,label,key}:forString)=>
 {
   const isActive = pathname  === key 
@@ -182,35 +206,39 @@ const lastLink = '/about'
 
 
 
-<div ref={menudiv} className="menu opacity-0 landscape:hidden w-full left-0 h-[24vw] bg-[#162226] text-[#e9e2e0]   absolute z-50 top-[-30vw] flex justify-center items-center ">
+<div ref={menudiv} className="menu opacity-0 landscape:hidden portrait:space-x-6 w-full left-0 h-[24vw] bg-[#162226] text-[#e9e2e0]   absolute z-50 top-[-30vw] flex justify-center items-center ">
 
-<ul  className=" flex justify-between w-[80%] text-[6vw] space-x-[6vw]">
 
-{settings.data.navigation.map(({link,label,key}:forString)=>
-  
+<div
+onClick={menuBackAnimation}
+
+ref={serviceTXT} className="services-text px-3 py-2  rounded bg-[#FBFFFE] hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323]  shadow-lg">
+    Services
+  </div>
+ 
+
+{Object.values(navigation).map(({link,label,key}:forString)=>
 {
   const isActive = pathname  === key 
-  const isActiveChild = key !== '/' && pathname.includes(key)
+  const isActiveChild = key !== '/' && pathname.includes(`${key}`)
 const logic = !isActiveChild? isActive : isActiveChild
-
+const lastLink = '/about'
   return(
-<li
- 
+      
+<div  key={key}
+ >
+<Link href={link}
 onClick={menuBackAnimation}
-  key={key}>
-<PrismicNextLink 
+
  className={cn(
-  'px-3 py-2 rounded  transition duration-300 ease-in-out text-[#d4e4d9] ',
-   logic && 'bg-[#7fac8c] text-[#d8e7dd] '
+  'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] bg-[#FBFFFE] transition duration-300 ease-in-out text-[#0D2323] ',
+   logic && 'bg-[#162226] text-[#e8f7ed] hover:text-[#e0f3e6]  shadow-lg ' 
 )}
+ >{label}</Link>
 
- field={link}>{label}</PrismicNextLink>
-
-</li>
+</div>
 
 )})}
-
-</ul>
 
 </div>
 
