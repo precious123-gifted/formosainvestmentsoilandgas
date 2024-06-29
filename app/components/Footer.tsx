@@ -73,7 +73,7 @@ let about = '/about'
 <div className="title text-[1.6vw] portrait:sm:text-[3.5vw] portrait:text-[6.5vw]">Contact Us</div>
 
 
-<div className="icons flex space-x-6 portrait:space-x-9"> 
+<div className="icons flex flex-col "> 
 
 <Link  href={`tel:+23414537731`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">+23414537731-2</div></Link>
 <Link  href={`tel:+23414537731`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">+3168686421383</div></Link>
