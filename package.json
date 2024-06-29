@@ -17,6 +17,7 @@
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
     "next": "14.2.4",
+    "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.1"
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.42",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.15",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
