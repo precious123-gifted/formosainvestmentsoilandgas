@@ -1,7 +1,8 @@
 "use client"
 
 import Bounded from "@/app/components/Bounded";
-import { Content } from "@prismicio/client";
+import { Client, Content } from "@prismicio/client";
+import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 import React, { MutableRefObject, useRef } from "react";
@@ -59,6 +60,23 @@ const Allproducts = ({ slice }: AllproductsProps): JSX.Element => {
   );
 };
 
+export async function getServerSideProps() {
+  const client = createClient()
+
+  // Fetch data from Prismic using your Prismic client
+  const settings = await client.getSingle('settings')
+
+  const data = settings.data;
+
+  return {
+    props: {
+      slice: data,
+    },
+  };
+}
+
+
 export default Allproducts;
+
 
 

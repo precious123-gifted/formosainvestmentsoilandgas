@@ -39,11 +39,11 @@ let about = '/about'
 
 
 
-<div className="details w-[98%]  flex portrait:flex-col portrait:space-y-8 landscape:space-x-[20%] ">
+<div className="details w-[98%] relative flex portrait:flex-col portrait:space-y-8 landscape:space-x-[20%] ">
 
 <div className="addressNpolicySection space-y-3 landscape:w-[40%] portrait:sm:w-[100%]">
 
-<div className="addressDiv relative space-y-1">
+<div className="addressDiv  space-y-1">
   <div className="title text-[1.7vw] portrait:sm:text-[4vw] portrait:text-[7vw]">About Us</div>
  <Link href={'/about'}> <div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw] ">Who We Are</div></Link>
  <Link href={'/missionandvision'}><div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">Mission and Vision</div></Link>
@@ -66,26 +66,22 @@ let about = '/about'
 
 <div className="customerSupportSection w-[40%] portrait:w-full space-y-3">
   <div className="header text-[1.7vw] portrait:sm:text-[4vw] portrait:text-[7vw]">Customer Support</div>
-  <div className="refundPolicyLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw] hover:text-[#E2CABE]">
-    {/* <PrismicNextLink field={settings.data.refundpolicy}>Refund Policy</PrismicNextLink> */}
-    </div>
-  <div className="termsNconditionLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw] hover:text-[#E2CABE]">
-    {/* <PrismicNextLink field={settings.data.termsandconditions}>Terms and Conditions</PrismicNextLink> */}
-    </div>
-
-  <div className="deliveryLink text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw] hover:text-[#E2CABE]">
-    {/* <PrismicNextLink field={settings.data.deliverypolicy}>Delivery Policy</PrismicNextLink> */}
-    </div>
+ 
+ 
 
     <div className="contactDiv space-y-2">
 <div className="title text-[1.6vw] portrait:sm:text-[3.5vw] portrait:text-[6.5vw]">Contact Us</div>
 
 
 <div className="icons flex space-x-6 portrait:space-x-9"> 
-{/* <Image src={ gmailIcon} alt="gmail icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/> */}
-{/* <Image src={ whatsappIcon} alt="whatsapp icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/> */}
-{/* <Image src={ instagramIcon} alt="instagram icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/> */}
-{/* <Image src={ facebookIcon} alt="facebook icon" className=" w-[2vw] portrait:w-[7vw] portrait:sm:w-[3.5vw] object-contain"/> */}
+
+<Link  href={`tel:+23414537731`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">+23414537731-2</div></Link>
+<Link  href={`tel:+23414537731`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">+3168686421383</div></Link>
+<Link  href={`mailto:info@formosa6js.com`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">info@formosa6js.com</div></Link>
+<Link  href={`mailto:formosa6js@gmail.com`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">formosa6js@gmail.com</div></Link>
+
+
+
 
 </div>
 
