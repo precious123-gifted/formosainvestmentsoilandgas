@@ -236,7 +236,7 @@ const lastLink = '/about'
 
   </div>
 
-  <div className="oilprice_container opacity-1 landscape:hidden text-[#dfece3] py-2 flex text-[2.8vw]  space-x-6 ">
+  <div className="oilprice_container opacity-1 landscape:hidden text-[#dfece3] py-2 flex text-[2.8vw]  justify-between ">
 
 {filteredProducts.slice(0, 4).map((product, index) => (
       <div key={index} className="product flex flex-col">
