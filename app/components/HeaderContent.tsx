@@ -153,7 +153,7 @@ const filteredProducts = oilData.filter(
   href={"/"}> <PrismicNextImage  field={settings.data.logo} className="rounded-md" /></Link>
       </div>
 
-      <div className="oilprice_container text-[#dfece3] flex text-[1vw] portrait:text-[1.2vw] space-x-10 portrait:space-x-4">
+      <div className="oilprice_container portrait:hidden text-[#dfece3] flex text-[1vw] portrait:text-[1.2vw] space-x-10 portrait:space-x-4">
 
       {filteredProducts.slice(0, 4).map((product, index) => (
             <div key={index} className="product flex flex-col">
@@ -236,6 +236,25 @@ const lastLink = '/about'
 
   </div>
 
+  <div className="oilprice_container opacity-1 landscape:hidden text-[#dfece3] py-2 flex text-[2vw]  space-x-10 ">
+
+{filteredProducts.slice(0, 4).map((product, index) => (
+      <div key={index} className="product flex flex-col">
+        <div className="title text-[#d4bf55]">{product.title}</div>
+        <div className="price">{product.price}</div>
+        <div className={cn(
+          "percentage",
+          product.percentage.includes("-") ? " text-[#d36956] " : "text-[#38c058]",
+        )}>
+          {product.percentage}
+          <>%</>
+        </div>
+        <div className="unit text-[#bec7c1]">{product.unit}</div>
+        <div className="date text-[#bec7c1]">{product.date}</div>
+      </div>
+    ))}
+
+</div>
 
 
 <div ref={menudiv} className="menu opacity-0 landscape:hidden portrait:space-x-6 w-full left-0 h-[24vw] bg-[#162226] text-[#e9e2e0]   absolute z-50 top-[-30vw] flex justify-center items-center ">
