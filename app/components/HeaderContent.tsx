@@ -236,7 +236,7 @@ const lastLink = '/about'
 
   </div>
 
-  <div className="oilprice_container opacity-1 landscape:hidden text-[#dfece3] py-2 flex text-[2.4vw]  space-x-8 ">
+  <div className="oilprice_container opacity-1 landscape:hidden text-[#dfece3] py-2 flex text-[2.8vw]  space-x-8 ">
 
 {filteredProducts.slice(0, 4).map((product, index) => (
       <div key={index} className="product flex flex-col">
@@ -249,8 +249,8 @@ const lastLink = '/about'
           {product.percentage}
           <>%</>
         </div>
-        <div className="unit text-[#bec7c1]">{product.unit}</div>
-        <div className="date text-[#bec7c1]">{product.date}</div>
+        <div className="unit text-[1.6vw]  text-[#bec7c1]">{product.unit}</div>
+        <div className="date text-[1.6vw] text-[#bec7c1]">{product.date}</div>
       </div>
     ))}
 
