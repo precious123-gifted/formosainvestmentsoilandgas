@@ -138,7 +138,7 @@ const filteredProducts = oilData.filter(
   (product: OilProduct) =>
     product.title === "Oil (Brent)" ||
     product.title === "Oil (WTI)" ||
-    product.title === "RBOB Gasoline" ||
+    product.title === "Coal" ||
     product.title === "Natural Gas (Henry Hub)"
 );
 
