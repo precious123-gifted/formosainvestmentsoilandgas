@@ -28,14 +28,14 @@ let about = '/about'
 
 
 
-  <Image
+  {/* <Image
     src={footerBG}
     alt="Background"
     layout="fill"
     objectFit="cover"
     priority
     className=" w-full h-full  "
-  />
+  /> */}
 
 
 
