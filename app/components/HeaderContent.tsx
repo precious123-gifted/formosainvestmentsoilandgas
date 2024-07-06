@@ -128,8 +128,7 @@ useEffect(() => {
 
   fetchData();
 
-  const intervalId = setInterval(fetchData, 3600 * 1000);
-
+  const intervalId = setInterval(fetchData, 20 * 60 * 1000);
   // Cleanup function to clear the timer on unmount
   return () => clearInterval(intervalId);
 }, []);
@@ -249,8 +248,8 @@ const lastLink = '/about'
           {product.percentage}
           <>%</>
         </div>
-        <div className="unit text-[1.8vw]  text-[#bec7c1]">{product.unit}</div>
-        <div className="date text-[1.8vw] text-[#bec7c1]">{product.date}</div>
+        <div className="unit text-[2.2vw]  text-[#bec7c1]">{product.unit}</div>
+        <div className="date text-[2.2vw] text-[#bec7c1]">{product.date}</div>
       </div>
     ))}
 
