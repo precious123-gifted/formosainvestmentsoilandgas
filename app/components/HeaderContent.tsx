@@ -160,7 +160,7 @@ const filteredProducts = oilData.filter(
               <div className="price">{product.price}</div>
               <div className={cn(
                 "percentage",
-                product.percentage.includes("-") ? " text-[#d36956]" : "text-[#38c058]",
+                product.percentage.includes("-") ? "text-[#d36956]" : "text-[#38c058]",
               )}>
                 {product.percentage}
                 <>%</>
