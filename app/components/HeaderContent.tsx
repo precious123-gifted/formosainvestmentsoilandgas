@@ -109,6 +109,39 @@ const navigation = {
 const serviceTXT = useRef<HTMLDivElement>(null);
 
 
+interface OilProduct {
+  title: string;
+  price: string;
+  percentage: string;
+  unit: string;
+  date: string;
+}
+
+const [oilData, setOilData] = useState<OilProduct[]>([]);
+
+useEffect(() => {
+  const fetchData = async () => {
+    const response = await fetch("/api/oilprice",{ next: { revalidate: 1 } });
+    const data: OilProduct[] = await response.json();
+    setOilData(data);
+  };
+
+  fetchData();
+
+  const intervalId = setInterval(fetchData, 3600 * 1000);
+
+  // Cleanup function to clear the timer on unmount
+  return () => clearInterval(intervalId);
+}, []);
+
+const filteredProducts = oilData.filter(
+  (product: OilProduct) =>
+    product.title === "Oil (Brent)" ||
+    product.title === "Oil (WTI)" ||
+    product.title === "RBOB Gasoline" ||
+    product.title === "Natural Gas (Henry Hub)"
+);
+
 
 
   return (
@@ -120,6 +153,25 @@ const serviceTXT = useRef<HTMLDivElement>(null);
   href={"/"}> <PrismicNextImage  field={settings.data.logo} className="rounded-md" /></Link>
       </div>
 
+      <div className="oilprice_container text-[#dfece3] flex text-[1vw] portrait:text-[1.2vw] space-x-10 portrait:space-x-4">
+
+      {filteredProducts.slice(0, 4).map((product, index) => (
+            <div key={index} className="product flex flex-col">
+              <div className="title text-[#d4bf55]">{product.title}</div>
+              <div className="price">{product.price}</div>
+              <div className={cn(
+                "percentage",
+                product.percentage.includes("-") ? " text-[#d36956] " : "text-[#38c058]",
+              )}>
+                {product.percentage}
+                <>%</>
+              </div>
+              <div className="unit text-[#bec7c1]">{product.unit}</div>
+              <div className="date text-[#bec7c1]">{product.date}</div>
+            </div>
+          ))}
+
+</div>
 
 <div className="cartNmenuDiv landscape:hidden flex items-center  relative space-x-8 portrait:sm:space-x-14">
 
@@ -140,8 +192,11 @@ const serviceTXT = useRef<HTMLDivElement>(null);
 
 
 
-
 <div ref={desktoplinks} className="links opacity-0 px-1 portrait:hidden w-auto space-x-[4vw] flex items-center  bg-[#FBFFFE] rounded-3xl ">
+
+
+
+
 <ul  className=" flex justify-between items-center w-[80%] text-[1.5vw] space-x-[6vw]">
 
  
