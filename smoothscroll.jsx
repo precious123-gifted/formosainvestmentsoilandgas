@@ -16,7 +16,7 @@ function Layout() {
 
 function SmoothScrolling({ children }) {
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}>
+    <ReactLenis root options={{ lerp: 0.3, duration: 1.5, smoothTouch: true }}>
       {children}
     </ReactLenis>
   );
