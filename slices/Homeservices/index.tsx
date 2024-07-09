@@ -61,8 +61,8 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
                 <PrismicNextImage  field={product.service_image} className="rounded-md"/>
               </div>
 
-              <div className="productTitle w-[12vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header1}</div></div>
-              <div className="productTitle w-[12vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header2}</div></div>
+              <div className="productTitle w-[20vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw]  portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header1}</div></div>
+              <div className="productTitle w-[20vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw]  portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header2}</div></div>
             <div className="productDescription w-[20vw] portrait:w-full  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.service_writeup}</div>
             </div>
           </div>
