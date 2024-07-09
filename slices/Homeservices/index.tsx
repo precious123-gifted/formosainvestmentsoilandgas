@@ -67,7 +67,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
       
 
       <div className="space-y-16 flex flex-col items-center  ">
-        <div   className="ProductsContainer w-full grid  portrait:grid-cols-1 landscape:grid-cols-3  gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   gap-y-20"> 
+        <div   className="ProductsContainer w-full grid  portrait:grid-cols-1 landscape:grid-cols-2  gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   gap-y-20"> 
         {slice.primary.services_container.map((product:any,index:number) => (
           <div
             key={product._id}
@@ -81,7 +81,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
 <InView as="div" onChange={(inView, entry) => opacityAnimation(imagerefs.current[index],0.4,inView)}>
             
             <div 
-            ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="productImage opacity-0 cursor-pointer w-[18vw] mb-3 portrait:w-full object-contain">
+            ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="productImage opacity-0 cursor-pointer w-[30vw] mb-3 portrait:w-full object-contain">
                 <PrismicNextImage  field={product.service_image} className="rounded-md"/>
               </div>
 </InView>
@@ -91,7 +91,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
               <div
             ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
               
-              className="productTitle opacity-0 w-[20vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw]  portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header1}</div></div>
+              className="productTitle opacity-0 w-[30vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw]  portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header1}</div></div>
 </InView>
 
 <InView as="div" onChange={(inView, entry) => opacityAnimation(header2refs.current[index],0.4,inView)}>
@@ -99,7 +99,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
               <div
             ref={header2refs.current[index] = React.createRef<HTMLDivElement>()}
               
-              className="productTitle opacity-0 w-[20vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw]  portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header2}</div></div>
+              className="productTitle opacity-0 w-[30vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw]  portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header2}</div></div>
 
 </InView>
 
@@ -108,7 +108,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
             <div 
             ref={writeuprefs.current[index] = React.createRef<HTMLDivElement>()}
             
-            className="productDescription opacity-0 w-[20vw] portrait:w-full  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.service_writeup}</div>
+            className="productDescription opacity-0 w-[30vw] portrait:w-full  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.service_writeup}</div>
 
 </InView>
 
