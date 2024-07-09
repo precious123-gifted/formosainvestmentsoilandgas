@@ -51,19 +51,19 @@ const Whyus = ({ slice }: WhyusProps): JSX.Element => {
 
 <div className="headersection space-y-6 landscape:pt-14  portrait:pt-6 portrait:text-center  landscape:text-start h-full  flex flex-col items-center w-full">
 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(header,0.6,inView)}>
+<InView as="div" onChange={(inView, entry) => opacityAnimation(header,0.4,inView)}>
 
 <div ref={header} className="header opacity-0 text-[3vw] portrait:text-[6vw] portrait:sm:mb-8">{slice.primary.header}</div>
 
 </InView>
 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(writeup,0.6,inView)}>
+<InView as="div" onChange={(inView, entry) => opacityAnimation(writeup,0.4,inView)}>
 
 <div ref={ writeup} className="writeup opacity-1 text-[1.4vw] portrait:text-[4.3vw]">{slice.primary.writeup1}</div>
 </InView>
 
 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(writeup2,0.6,inView)}>
+<InView as="div" onChange={(inView, entry) => opacityAnimation(writeup2,0.4,inView)}>
 
 <div ref={ writeup2} className="writeup opacity-1 text-[1.4vw] portrait:text-[4.3vw]">{slice.primary.writeup2}</div>
 </InView>

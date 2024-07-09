@@ -40,7 +40,7 @@ let about = '/about'
 
 
 
-<div className="details w-[98%] relative flex portrait:flex-col portrait:space-y-8 landscape:space-x-[20%] ">
+<div className="details w-[98%] relative flex portrait:flex-col portrait:space-y-8 justify-between ">
 
 <div className="addressNpolicySection space-y-3 landscape:w-[40%] portrait:sm:w-[100%]">
 
@@ -54,7 +54,7 @@ let about = '/about'
 
 </div>
 
-<div className="addressNpolicySection space-y-3 landscape:w-[40%] portrait:sm:w-[100%]">
+{/* <div className="addressNpolicySection space-y-3 landscape:w-[40%] portrait:sm:w-[100%]">
 
 <div className="addressDiv space-y-1">
   <div className="title text-[1.7vw] portrait:sm:text-[4vw] portrait:text-[7vw]">Address</div>
@@ -63,7 +63,7 @@ let about = '/about'
 
 
 
-</div>
+</div> */}
 
 <div className="customerSupportSection w-[40%] portrait:w-full space-y-3">
   <div className="header text-[1.7vw] portrait:sm:text-[4vw] portrait:text-[7vw]">Customer Support</div>
