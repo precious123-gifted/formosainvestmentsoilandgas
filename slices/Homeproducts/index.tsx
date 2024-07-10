@@ -8,6 +8,7 @@ import Link from "next/link";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicNextLink } from "@prismicio/next";
 import { InView } from "react-intersection-observer";
+import SplitType from "split-type";
 import gsap from "gsap";
 
 /**
@@ -21,6 +22,7 @@ export type HomeproductsProps = SliceComponentProps<Content.HomeproductsSlice>;
 const Homeproducts = ({ slice }: HomeproductsProps): JSX.Element => {
 
   type ProductRef = MutableRefObject<HTMLDivElement | null>;
+  type SplitHeaderRef = MutableRefObject<HTMLSpanElement | null>;
 
   const productrefs = useRef<ProductRef[]>([]);
   const headerref = useRef(null)
@@ -29,6 +31,8 @@ const Homeproducts = ({ slice }: HomeproductsProps): JSX.Element => {
   const imagerefs = useRef<ProductRef[]>([]);
   const writeuprefs = useRef<ProductRef[]>([]);
   const headerrefs = useRef<ProductRef[]>([]);
+  const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
+  const splittitlerefs = useRef<SplitHeaderRef[]>([]);
 
 
   const opacityAnimation = (ref: RefObject<HTMLDivElement>, time: number,inView:boolean) => {
@@ -42,6 +46,36 @@ const Homeproducts = ({ slice }: HomeproductsProps): JSX.Element => {
  
   };
 
+
+  const opacityAndLetterAnimation = (ref: RefObject<HTMLSpanElement> , time: number, inView: boolean) => {
+  
+  
+
+  
+    const timeline = gsap.timeline();
+  splitheaderrefs.current.forEach((ref)=>{
+ timeline.to(ref.current, time, { opacity: inView ? 1 : 0, ease: "power1.easeIn" });
+    timeline.play(); 
+
+  })
+  
+ 
+  };
+  const opacityAndLetterAnimation2 = (ref: RefObject<HTMLSpanElement> , time: number, inView: boolean) => {
+  
+  
+
+  
+    const timeline = gsap.timeline();
+    splittitlerefs.current.forEach((ref)=>{
+      timeline.to(ref.current, time, { opacity: inView ? 1 : 0, ease: "power1.easeIn" });
+         timeline.play(); 
+     
+       })
+  
+ 
+  };
+
   
   return (
     <Bounded
@@ -50,10 +84,21 @@ const Homeproducts = ({ slice }: HomeproductsProps): JSX.Element => {
    className="  text-[#333D3E] bg-[#EDF4F6]" 
     >
 <div className="content w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(headerref,0.4,inView)}>
-<div ref={headerref} className="heading opacity-0 text-[3vw] portrait:sm:text-[7vw] portrait:text-[10vw]  portrait:mb-10">{slice.primary.header}</div>
+<div>
+{slice.primary.header?.split('').map((letter,index)=>(
 
-</InView>
+  <span key={index} className="relative">
+  
+<InView as="div" onChange={(inView, entry) => opacityAndLetterAnimation(splitheaderrefs.current[index],0.1,inView)} className="absolute"/>
+ 
+  <span key={index} ref={splitheaderrefs.current[index] = React.createRef<HTMLSpanElement>()} 
+   className="heading opacity-0 text-[3vw] portrait:sm:text-[7vw] portrait:text-[10vw]  portrait:mb-10 ">
+    {letter}
+   </span>
+</span>
+))}
+</div>
+
 
 
 <div className="hairsection w-full ">
@@ -87,13 +132,25 @@ className="productImage cursor-pointer w-[18vw] mb-3 portrait:w-full object-cont
             </InView>
 
               
-            <InView as="div" onChange={(inView, entry) => opacityAnimation(headerrefs.current[index],0.4,inView)}>
-            <div 
-            ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
-            
-            className="productTitle opacity-0 w-[12vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"><div >{product.title}</div></div>
+       <div key={index} className="relative" >
+             {product.title.split('').map((letter:any,index:number)=>(
 
-</InView>
+
+<InView as="span" key={index} 
+onChange={(inView, entry) => opacityAndLetterAnimation2(splittitlerefs.current[index],0.1,inView)}
+   className="productTitle  w-[12vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"
+  > <span className="opacity-1"
+ref={splittitlerefs.current[index] = React.createRef<HTMLSpanElement>()}
+  
+  > {letter}</span> </InView>
+
+ 
+))} 
+              
+              
+              </div> 
+
+
 <InView as="div" onChange={(inView, entry) => opacityAnimation(writeuprefs.current[index],0.4,inView)}>
 
  <div 
