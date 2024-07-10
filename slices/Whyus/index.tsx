@@ -68,11 +68,6 @@ const Whyus = ({ slice }: WhyusProps): JSX.Element => {
 
 <div className="headersection space-y-6 landscape:pt-14  portrait:pt-6 portrait:text-center  landscape:text-start h-full  flex flex-col items-center w-full">
 
-{/* <InView as="div" onChange={(inView, entry) => opacityAnimation(header,0.4,inView)}>
-
-<div ref={header} className="header opacity-0 text-[3vw] portrait:text-[6vw] portrait:sm:mb-8">{slice.primary.header}</div>
-
-</InView> */}
 
 <div>
         {slice.primary.header?.split('').map((letter,index)=>(
@@ -82,7 +77,7 @@ const Whyus = ({ slice }: WhyusProps): JSX.Element => {
 <InView as="div" onChange={(inView, entry) => opacityAndLetterAnimation(splitheaderrefs.current[index],0.1,inView)} className="absolute"/>
 
 <span key={index} ref={splitheaderrefs.current[index] = React.createRef<HTMLSpanElement>()} 
- className="heading opacity-0 text-[3vw] portrait:sm:text-[7vw] portrait:text-[10vw]  portrait:mb-10 ">
+className="header opacity-0 text-[3vw] portrait:text-[6vw] portrait:sm:mb-8">
   {letter}
  </span>
 </span>
