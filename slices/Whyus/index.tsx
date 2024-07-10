@@ -3,7 +3,7 @@
 import Bounded from "@/app/components/Bounded";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { RefObject, useRef } from "react";
+import React, { MutableRefObject, RefObject, useRef } from "react";
 import { InView } from "react-intersection-observer";
 import gsap from 'gsap'
 
@@ -36,7 +36,24 @@ const Whyus = ({ slice }: WhyusProps): JSX.Element => {
   };
 
 
+  type SplitHeaderRef = MutableRefObject<HTMLSpanElement | null>;
 
+  const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
+
+  const opacityAndLetterAnimation = (ref: RefObject<HTMLSpanElement> , time: number, inView: boolean) => {
+  
+  
+
+  
+    const timeline = gsap.timeline();
+  splitheaderrefs.current.forEach((ref)=>{
+ timeline.to(ref.current, time, { opacity: inView ? 1 : 0, ease: "power1.easeIn" });
+    timeline.play(); 
+
+  })
+  
+ 
+  };
 
 
   return (
@@ -51,11 +68,26 @@ const Whyus = ({ slice }: WhyusProps): JSX.Element => {
 
 <div className="headersection space-y-6 landscape:pt-14  portrait:pt-6 portrait:text-center  landscape:text-start h-full  flex flex-col items-center w-full">
 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(header,0.4,inView)}>
+{/* <InView as="div" onChange={(inView, entry) => opacityAnimation(header,0.4,inView)}>
 
 <div ref={header} className="header opacity-0 text-[3vw] portrait:text-[6vw] portrait:sm:mb-8">{slice.primary.header}</div>
 
-</InView>
+</InView> */}
+
+<div>
+        {slice.primary.header?.split('').map((letter,index)=>(
+
+<span key={index} className="relative">
+
+<InView as="div" onChange={(inView, entry) => opacityAndLetterAnimation(splitheaderrefs.current[index],0.1,inView)} className="absolute"/>
+
+<span key={index} ref={splitheaderrefs.current[index] = React.createRef<HTMLSpanElement>()} 
+ className="heading opacity-0 text-[3vw] portrait:sm:text-[7vw] portrait:text-[10vw]  portrait:mb-10 ">
+  {letter}
+ </span>
+</span>
+))}
+</div>
 
 <InView as="div" onChange={(inView, entry) => opacityAnimation(writeup,0.4,inView)}>
 

@@ -41,6 +41,24 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
  
   };
 
+  type SplitHeaderRef = MutableRefObject<HTMLSpanElement | null>;
+
+  const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
+
+  const opacityAndLetterAnimation = (ref: RefObject<HTMLSpanElement> , time: number, inView: boolean) => {
+  
+  
+
+  
+    const timeline = gsap.timeline();
+  splitheaderrefs.current.forEach((ref)=>{
+ timeline.to(ref.current, time, { opacity: inView ? 1 : 0, ease: "power1.easeIn" });
+    timeline.play(); 
+
+  })
+  
+ 
+  };
 
 
 
@@ -51,11 +69,22 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
    className="  text-[#333D3E] bg-[#EDF4F6]" 
     >
 <div id="services" className="content w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(headerref,0.4,inView)}>
+ 
 
-        <div ref={headerref} className="heading opacity-0  text-[3vw] portrait:sm:text-[7vw] portrait:text-[10vw]  portrait:mb-10">{slice.primary.header}</div>
-        </InView>
+<div>
+        {slice.primary.header?.split('').map((letter,index)=>(
 
+<span key={index} className="relative">
+
+<InView as="div" onChange={(inView, entry) => opacityAndLetterAnimation(splitheaderrefs.current[index],0.1,inView)} className="absolute"/>
+
+<span key={index} ref={splitheaderrefs.current[index] = React.createRef<HTMLSpanElement>()} 
+ className="heading opacity-0 text-[3vw] portrait:sm:text-[7vw] portrait:text-[10vw]  portrait:mb-10 ">
+  {letter}
+ </span>
+</span>
+))}
+</div>
 
 <div className="hairsection w-full ">
 

@@ -133,20 +133,27 @@ className="productImage cursor-pointer w-[18vw] mb-3 portrait:w-full object-cont
 
               
        <div key={index} className="relative" >
-             {product.title.split('').map((letter:any,index:number)=>(
+             {/* {product.title.split('').map((letter:any,index:number)=>(
 
 
 <InView as="span" key={index} 
 onChange={(inView, entry) => opacityAndLetterAnimation2(splittitlerefs.current[index],0.1,inView)}
    className="productTitle  w-[12vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"
-  > <span className="opacity-1"
+  > <span className="opacity-0"
 ref={splittitlerefs.current[index] = React.createRef<HTMLSpanElement>()}
   
   > {letter}</span> </InView>
 
  
-))} 
+))}  */}
               
+              <InView as="div" key={index} 
+onChange={(inView, entry) => opacityAnimation(headerrefs.current[index],0.1,inView)}
+   className="productTitle  w-[12vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"
+  > <span className="opacity-0"
+ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
+  
+  > {product.title}</span> </InView>     
               
               </div> 
 
