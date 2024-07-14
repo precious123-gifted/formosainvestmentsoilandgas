@@ -1,9 +1,8 @@
-"use client"
-
+"use server"
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import Bounded from '../../app/components/Bounded';
-import { useRef } from "react";
+import { sendMail } from "@/lib/mail";
 import Image from "next/image";
 import oilrig from "../../public/oilrig.png"
 
@@ -17,8 +16,7 @@ export type EnquiryProps = SliceComponentProps<Content.EnquirySlice>;
  */
 const Enquiry = ({ slice }: EnquiryProps): JSX.Element => {
 
-  const headerref = useRef(null)
-  const button = useRef(null)
+
 
 
 
@@ -74,7 +72,15 @@ const Enquiry = ({ slice }: EnquiryProps): JSX.Element => {
 
 
 
-
+  const send = async () => {
+    "use server"
+    await sendMail({
+      to: "formosa6js@gmail.com",
+      name: "precious",
+      subject: "Test Mail",
+      body: '<h1>hello SIR this is precious testing the email auto send function</h1>',
+    });
+  };
 
 
 
@@ -95,7 +101,7 @@ const Enquiry = ({ slice }: EnquiryProps): JSX.Element => {
 
   <div className="clients_writeup_lead  mb-4 portrait:mt-10  portrait:mb-10 mt-4 text-[2vw]  portrait:text-[6vw] portrait:sm:text-[3vw]">{slice.primary.writeup}</div>
 
-<form onSubmit={handleSubmit} className="flex flex-col items-center">
+<form   className="flex flex-col items-center">
 
 <div className="inputs w-full grid  portrait:grid-cols-1 landscape:grid-cols-2  gap-5 portrait:gap-[6vw] portrait:sm:gap-y-[6vw]   gap-y-6">
 <input required type="text"  className='brandname outline-none h-[3vw] portrait:h-[14vw] px-3 text-[#EDF4F6] bg-[#2F3D47] rounded-md' name="name" placeholder='Name'  />
@@ -105,7 +111,7 @@ const Enquiry = ({ slice }: EnquiryProps): JSX.Element => {
 <textarea required  className='fulldescription w-[48.5vw] portrait:w-full outline-none h-[12vw] resize-none portrait:h-[28vw] px-3 py-1 text-[#EDF4F6] bg-[#2F3D47] rounded-md'  name="enquiry" placeholder='Write down Your Enquiry' />
 </div>
 
-<button type="submit" className="btn mt-10  portrait:w-full bg-[#423B17] text-[#EDF4F6] cursor-pointer portrait:px-[22vw] px-[6vw] py-3 rounded-[0.280rem] text-[1.8vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.2s]  ease-in-out ">Submit</button>
+<button  formAction={send} className="btn mt-10  portrait:w-full bg-[#423B17] text-[#EDF4F6] cursor-pointer portrait:px-[22vw] px-[6vw] py-3 rounded-[0.280rem] text-[1.8vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.2s]  ease-in-out ">Submit</button>
 
 
 

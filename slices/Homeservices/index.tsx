@@ -79,7 +79,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
 <InView as="div" onChange={(inView, entry) => opacityAndLetterAnimation(splitheaderrefs.current[index],0.1,inView)} className="absolute"/>
 
 <span key={index} ref={splitheaderrefs.current[index] = React.createRef<HTMLSpanElement>()} 
- className="heading opacity-0 text-[3vw] portrait:sm:text-[7vw] portrait:text-[10vw]  portrait:mb-10 ">
+ className="heading opacity-0 text-[2vw] portrait:sm:text-[4vw] portrait:text-[6vw]  portrait:mb-10 ">
   {letter}
  </span>
 </span>
@@ -96,7 +96,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
       
 
       <div className="space-y-16 flex flex-col items-center  ">
-        <div   className="ProductsContainer w-full grid  portrait:grid-cols-1 landscape:grid-cols-2  gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   gap-y-20"> 
+        <div   className="ProductsContainer w-full grid  portrait:grid-cols-1 landscape:grid-cols-2  gap-1 portrait:gap-[4vw] portrait:sm:gap-[4vw]   gap-y-1"> 
         {slice.primary.services_container.map((product:any,index:number) => (
           <div
             key={product._id}
@@ -110,12 +110,12 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
 <InView as="div" onChange={(inView, entry) => opacityAnimation(imagerefs.current[index],0.4,inView)}>
             
             <div 
-            ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="productImage opacity-0 cursor-pointer w-[30vw] mb-3 portrait:w-full object-contain">
+            ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="productImage opacity-0 cursor-pointer w-[47vw] mb-3 portrait:w-full object-contain">
                 <PrismicNextImage  field={product.service_image} className="rounded-md"/>
               </div>
 </InView>
 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(headerrefs.current[index],0.4,inView)}>
+{/* <InView as="div" onChange={(inView, entry) => opacityAnimation(headerrefs.current[index],0.4,inView)}>
 
               <div
             ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
@@ -139,7 +139,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
             
             className="productDescription opacity-0 w-[30vw] portrait:w-full  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.service_writeup}</div>
 
-</InView>
+</InView> */}
 
 
             </div>
