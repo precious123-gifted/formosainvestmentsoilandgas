@@ -16,7 +16,6 @@ export default function Homepage({Children}:any) {
   return (
 
     <>
-    <Header/>
    
        <SmoothScroller> 
         
@@ -25,7 +24,6 @@ export default function Homepage({Children}:any) {
     </SmoothScroller>
      
            
-    <Footer/>
 
     
     </>
