@@ -38,39 +38,6 @@ const Clients = ({ slice }: ClientsProps): JSX.Element => {
         <div ref={headerref} className="heading   text-[3vw] portrait:sm:text-[7vw] portrait:text-[10vw]  portrait:mb-10">{slice.primary.header}</div>
 
 
-{/* <div className="hairsection w-full ">
-
-
-  
-          
-         
-
-      
-
-      <div className="space-y-16 flex flex-col items-center  ">
-        <div   className="ProductsContainer w-full grid  portrait:grid-cols-2 landscape:grid-cols-4  gap-5 portrait:gap-[12vw] portrait:sm:gap-[20vw]   gap-y-20"> 
-        {slice.primary.company_logo.map((product:any,index:number) => (
-          <div
-            key={product._id}
-            id={product._id}
-            ref={productrefs.current[index] = React.createRef<HTMLDivElement>()}
-            // onClick={()=>{microActionOnProductClick(productrefs.current[index])}}
-            className="logo   transition duration-200 ease-in
-              w-auto flex justify-center items-center  "
-          >
-              <div className="logo cursor-pointer w-[18vw] max-w-[25vw] flex justify-center items-center  mb-3 portrait:w-full object-contain">
-                <PrismicNextImage  field={product.logo} className="rounded-md"/>
-              </div>
-
-          </div>
-        ))}
-
-
-      </div>
-
-  
-      </div>
-      </div> */}
       </div>
       </Bounded>
   );

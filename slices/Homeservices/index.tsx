@@ -115,7 +115,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
               </div>
 </InView>
 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(headerrefs.current[index],0.4,inView)}>
+{/* <InView as="div" onChange={(inView, entry) => opacityAnimation(headerrefs.current[index],0.4,inView)}>
 
               <div
             ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
@@ -139,7 +139,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
             
             className="productDescription opacity-0 w-[30vw] portrait:w-full  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.service_writeup}</div>
 
-</InView>
+</InView> */}
 
 
             </div>
