@@ -70,6 +70,16 @@ export default function HeaderContent({settings}: any) {
     console.log(pathname)
   })
 
+
+const serviceList = useRef(null)
+const serviceListAnimation = () =>{
+  gsap.to(serviceList.current,{left:showServicesDropdown?"0vw":"-100vw",})
+}
+
+useEffect(()=>{
+serviceListAnimation()
+})
+
   const navigation = {
     "products": {
       label: "Products",
@@ -244,7 +254,7 @@ ref={serviceTXT} className="services-text px-3 py-2   rounded bg-[#FBFFFE] hover
     Services
   </div>
   {showServicesDropdown && (
-              <div className="mt-[80vw] absolute z-50 left-0  w-full">
+              <div ref={serviceList} className="mt-[80vw]  absolute z-50 left-[100vw]  w-full">
               <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6] bg-white ring-1 ring-black ring-opacity-5">
                                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                  {serviceDropdownItems.map((item, index) => (
