@@ -254,14 +254,14 @@ ref={serviceTXT} className="services-text px-3 py-2   rounded bg-[#FBFFFE] hover
     Services
   </div>
   {showServicesDropdown && (
-              <div ref={serviceList} className="mt-[80vw]  absolute z-50 left-[100vw]  w-full">
-              <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6] bg-white ring-1 ring-black ring-opacity-5">
-                               <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+              <div ref={serviceList} className="mt-[90vw]  absolute z-50 left-[100vw]  w-full">
+              <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6]  bg-[#FBFFFE] ring-1 ring-black ring-opacity-5">
+                               <div className="py-1 space-y-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                  {serviceDropdownItems.map((item, index) => (
                                    <Link 
                                      key={index} 
                                      href={item.link}
-                                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
+                                     className="block px-4 py-2  text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
                                      role="menuitem"
                                    >
                                      {item.label}
