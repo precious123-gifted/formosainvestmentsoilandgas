@@ -147,8 +147,11 @@ export default function HeaderContent({settings}: any) {
 
         <div className="cartNmenuDiv landscape:hidden flex items-center relative space-x-8 portrait:sm:space-x-14">
           <div className="icon">
-            <div ref={menuicon} className="menuicon opacity-0 landscape:hidden cursor-pointer object-contain">
-              <MenuSvg className=""/>
+            <div
+            
+            onClick={()=>{setShowServicesDropdown(false)}}
+            ref={menuicon} className="menuicon opacity-0 landscape:hidden cursor-pointer object-contain">
+              <MenuSvg className="" />
             </div>
           </div> 
         </div>
@@ -227,51 +230,64 @@ export default function HeaderContent({settings}: any) {
         ))}
       </div>
 
-      <div ref={menudiv} className="menu opacity-0 landscape:hidden portrait:space-x-6 w-full left-0 h-auto bg-[#162226] text-[#e9e2e0] absolute z-50 top-[-30vw] flex flex-col justify-center items-center">
-        <div className="relative w-full text-center">
-          <div
-            onClick={() => setShowServicesDropdown(!showServicesDropdown)}
-            ref={serviceTXT} 
-            className="services-text px-3 py-2 rounded bg-[#FBFFFE] hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323] shadow-lg"
-          >
-            Services
-          </div>
-          {showServicesDropdown && (
-            <div className="mt-2 w-full bg-white">
-              {serviceDropdownItems.map((item, index) => (
-                <Link 
-                  key={index} 
-                  href={item.link}
-                  onClick={menuBackAnimation}
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" 
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
+   
 
-        {Object.values(navigation).map(({link,label,key}:forString) => {
-          const isActive = pathname === key 
-          const isActiveChild = key !== '/' && pathname.includes(`${key}`)
-          const logic = !isActiveChild ? isActive : isActiveChild
-          const lastLink = '/about'
-          return(
-            <div key={key}>
-              <Link href={link}
-                onClick={menuBackAnimation}
-                className={cn(
-                  'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] bg-[#FBFFFE] transition duration-300 ease-in-out text-[#0D2323] ',
-                  logic && 'bg-[#162226] text-[#e8f7ed] hover:text-[#e0f3e6] shadow-lg' 
-                )}
-              >
-                {label}
-              </Link>
-            </div>
-          )
-        })}
-      </div>
+      
+
+
+<div ref={menudiv} className="menu opacity-0 landscape:hidden portrait:space-x-6 w-full left-0 h-[24vw] bg-[#162226] text-[#e9e2e0]   absolute z-50 top-[-0vw] flex justify-center items-center ">
+
+
+<div
+onClick={() => setShowServicesDropdown(!showServicesDropdown)}
+ref={serviceTXT} className="services-text px-3 py-2   rounded bg-[#FBFFFE] hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323]  shadow-lg">
+    Services
+  </div>
+  {showServicesDropdown && (
+              <div className="mt-[80vw] absolute z-50 left-0  w-full">
+              <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6] bg-white ring-1 ring-black ring-opacity-5">
+                               <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                 {serviceDropdownItems.map((item, index) => (
+                                   <Link 
+                                     key={index} 
+                                     href={item.link}
+                                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
+                                     role="menuitem"
+                                   >
+                                     {item.label}
+                                   </Link>
+                                 ))}
+                               </div>
+                             </div>
+             
+                            </div>
+          )}
+
+{Object.values(navigation).map(({link,label,key}:forString)=>
+{
+  const isActive = pathname  === key 
+  const isActiveChild = key !== '/' && pathname.includes(`${key}`)
+const logic = !isActiveChild? isActive : isActiveChild
+const lastLink = '/about'
+  return(
+      
+<div  key={key}
+ >
+<Link href={link}
+onClick={menuBackAnimation}
+
+ className={cn(
+  'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] bg-[#FBFFFE] transition duration-300 ease-in-out text-[#0D2323] ',
+   logic && 'bg-[#162226] text-[#e8f7ed] hover:text-[#e0f3e6]  shadow-lg ' 
+)}
+ >{label}</Link>
+
+</div>
+
+)})}
+
+</div>
+
     </div>
   )
 }
