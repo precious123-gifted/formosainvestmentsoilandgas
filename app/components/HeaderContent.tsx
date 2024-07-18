@@ -173,11 +173,9 @@ serviceListAnimation()
               onMouseEnter={() => setShowServicesDropdown(true)}
               onMouseLeave={() => setShowServicesDropdown(false)}
             >
-              <Link href={"/#services"}>
                 <div ref={serviceTXT} className="services-text px-3 py-2 rounded hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323] rounded-l-3xl shadow-lg">
                   Services
                 </div>
-              </Link>
               {showServicesDropdown && (
                <div className="pt-2 absolute z-50 left-0  w-48">
  <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6] bg-white ring-1 ring-black ring-opacity-5">
