@@ -182,7 +182,7 @@ serviceListAnimation()
  <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6] bg-white ring-1 ring-black ring-opacity-5">
                   <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     {serviceDropdownItems.map((item, index) => (
-                      <Link onClick={menuBackAnimation} 
+                      <Link 
                         key={index} 
                         href={item.link}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
@@ -257,7 +257,7 @@ ref={serviceTXT} className="services-text px-3 py-2   rounded bg-[#FBFFFE] hover
               <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6]  bg-[#FBFFFE] ring-1 ring-black ring-opacity-5">
                                <div className="py-1 space-y-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                  {serviceDropdownItems.map((item, index) => (
-                                   <Link 
+                                   <Link onClick={menuBackAnimation} 
                                      key={index} 
                                      href={item.link}
                                      className="block px-4 py-2  text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
