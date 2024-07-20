@@ -59,11 +59,12 @@ export default function HeaderContent({settings}: any) {
 
   const menuAnimation = () =>{
     gsap.to(menudiv.current,{top:menu?"-30vw":"13vw",opacity:menu?0:1})
-    if(showServicesDropdown)setShowServicesDropdown(false)
   }
 
   const menuBackAnimation = () =>{
     if(menu == false) setMenu(!menu)
+    if(showServicesDropdown)setShowServicesDropdown(false)
+
   }
 
   useEffect(()=>{
