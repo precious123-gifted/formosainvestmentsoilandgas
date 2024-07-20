@@ -38,12 +38,12 @@ export default function HeaderContent({settings}: any) {
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
 
   const serviceDropdownItems = [
-    { label: "Sales", link: "/Sales" },
-    { label: "Supply", link: "/Supply" },
-    { label: "Marketing", link: "/Marketing" },
-    { label: "Bunkering", link: "/Bunkering" },
-    { label: "Offshore Intake-Offtake Facilities", link: "/Offshore Intake-Offtake Facilities" },
-    { label: "Petroleum & Gas Storage", link: "/Petroleum & Gas Storage" },
+    { label: "Sales", link: "/sales" },
+    { label: "Supply", link: "/supply" },
+    { label: "Marketing", link: "/marketing" },
+    { label: "Bunkering", link: "/bunkering" },
+    { label: "Offshore Intake-Offtake Facilities", link: "/offshore" },
+    { label: "Petroleum & Gas Storage", link: "/storage" },
   ];
 
   const loadingAnimation = useEffect(()=>{
