@@ -59,6 +59,7 @@ export default function HeaderContent({settings}: any) {
 
   const menuAnimation = () =>{
     gsap.to(menudiv.current,{top:menu?"-30vw":"13vw",opacity:menu?0:1})
+    setShowServicesDropdown(false)
   }
 
   const menuBackAnimation = () =>{
@@ -159,7 +160,6 @@ serviceListAnimation()
           <div className="icon">
             <div
             
-            onClick={()=>{setShowServicesDropdown(false)}}
             ref={menuicon} className="menuicon opacity-0 landscape:hidden cursor-pointer object-contain">
               <MenuSvg className="" />
             </div>
@@ -181,7 +181,7 @@ serviceListAnimation()
  <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6] bg-white ring-1 ring-black ring-opacity-5">
                   <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     {serviceDropdownItems.map((item, index) => (
-                      <Link 
+                      <Link onClick={menuBackAnimation} 
                         key={index} 
                         href={item.link}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
