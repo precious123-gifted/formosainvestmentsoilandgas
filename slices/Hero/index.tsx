@@ -62,7 +62,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   <Image
     src={backgroundImage}
     alt="Background"
-    className="object-cover h-[35vw] portrait:h-[35vh] rounded-lg  "
+    className="object-cover border-2 border-[#8a9a9b] h-[35vw] portrait:h-[35vh] rounded-lg  "
   />
  
 </div>
@@ -75,7 +75,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
 
   <div className="btn-div  h-[20vw]  w-full flex justify-center items-center"> 
- <Link href={"/products"}> <div ref={button} className="button opacity-0 bg-[#FBFFFE] text-[#333D3E] cursor-pointer px-8 py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#d1f1f3] duration-[0.2s]  ease-in-out ">Check Our Products</div> </Link> 
+ <Link href={"/products"}> <div ref={button} className="button opacity-0 bg-[#e8f3f0] text-[#333D3E] cursor-pointer px-8 py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#d1f1f3] duration-[0.2s]  ease-in-out ">Check Our Products</div> </Link> 
   
    </div>
 

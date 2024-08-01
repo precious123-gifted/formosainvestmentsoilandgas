@@ -133,7 +133,7 @@ serviceListAnimation()
   return (
     <div className="w-[98%] portrait:w-[96%] portrait:flex-col portrait:flex">
       <div className="content w-full flex flex-row justify-between items-center pt-2">
-        <div ref={logo} className="logo opacity-0 cursor-pointer object-contain w-[15vw] portrait:w-[32vw] pb-1">
+        <div ref={logo} className="logo opacity-0 cursor-pointer object-contain w-[13vw] portrait:w-[32vw] pb-1">
           <Link onClick={menuBackAnimation} href={"/"}>
             <PrismicNextImage field={settings.data.logo} className="rounded-md" />
           </Link>
@@ -167,14 +167,14 @@ serviceListAnimation()
           </div> 
         </div>
 
-        <div ref={desktoplinks} className="links opacity-0 px-1 portrait:hidden w-auto space-x-[4vw] flex items-center bg-[#FBFFFE] rounded-3xl">
+        <div ref={desktoplinks} className="links opacity-0 px-1 portrait:hidden w-auto space-x-[4vw] flex items-center bg-[#FBFFFE] rounded">
           <ul className="flex justify-between items-center w-[80%] text-[1.5vw] space-x-[6vw]">
             <div 
               className="relative"
               onMouseEnter={() => setShowServicesDropdown(true)}
               onMouseLeave={() => setShowServicesDropdown(false)}
             >
-                <div ref={serviceTXT} className="services-text px-3 py-2 rounded hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323] rounded-l-3xl shadow-lg">
+                <div ref={serviceTXT} className="services-text px-3 py-2 rounded hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323]  shadow-lg">
                   Services
                 </div>
               {showServicesDropdown && (
@@ -202,14 +202,13 @@ serviceListAnimation()
               const isActive = pathname === key 
               const isActiveChild = key !== '/' && pathname.includes(`${key}`)
               const logic = !isActiveChild ? isActive : isActiveChild
-              const lastLink = '/about'
               return(
                 <div key={key}>
                   <Link href={link}
                     className={cn(
                       'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] transition duration-300 ease-in-out text-[#0D2323] ',
                       logic && 'bg-[#162226] text-[#e8f7ed] hover:text-[#e0f3e6] shadow-lg',
-                      link === lastLink && 'rounded-r-3xl'
+                      
                     )}
                   >
                     {label}
