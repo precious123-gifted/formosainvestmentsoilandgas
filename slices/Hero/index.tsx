@@ -57,12 +57,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     data-slice-variation={slice.variation}
    className="   portrait:text-[#E7FEFF] portrait:pt-2 overflow-hidden " >
    
-  <div className=" content w-full  flex pt-6  portrait:flex-col  h-[40vw] portrait:h-[80vh] object-fit">
+  <div className=" content w-full  flex pt-8  portrait:flex-col  h-[40vw] portrait:h-[80vh] object-fit">
   <div className="hero bg-cover bg-no-repeat  overflow-hidden">
   <Image
     src={backgroundImage}
     alt="Background"
-    className="object-cover border-2 border-[#8a9a9b] h-[35vw] portrait:h-[35vh] rounded-lg  "
+    className="object-cover border-2 border-[#8a9a9b] h-[32vw] portrait:h-[35vh] rounded-lg  "
   />
  
 </div>
