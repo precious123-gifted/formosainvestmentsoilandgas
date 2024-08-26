@@ -27,7 +27,7 @@ const Allproducts = ({ slice }: AllproductsProps): JSX.Element => {
 
 
   return (
-    <Bounded className="bg-[#EDF4F6]   text-[#333D3E] pt-10 pb-[10vw]  portrait:pb-[20vw]">
+    <Bounded className="text-[#EDF4F6]   bg-[#080e0f] pt-10 pb-[10vw]  portrait:pb-[20vw]">
 
 <div className="heading  text-[3vw] portrait:text-[7vw] portrait:sm:text-[7.2vw] mb-[8vw]  portrait:mb-[20vw] text-center">All Products</div>
 

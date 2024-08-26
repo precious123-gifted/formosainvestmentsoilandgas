@@ -1,7 +1,7 @@
 "use client"
 
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next"
-import React, { MouseEvent, MutableRefObject, TouchEvent, useEffect } from 'react';
+import React, { MouseEvent, MutableRefObject, TouchEvent, useEffect, useLayoutEffect } from 'react';
 import Image from "next/image"
 import Link from "next/link"
 import cartIcon from "../../public/carticon.png";
@@ -130,8 +130,47 @@ serviceListAnimation()
       product.title === "Natural Gas (Henry Hub)"
   );
 
+
+
+
+
+
+  const [loaded,setLoaded] = useState(false)
+
+  useEffect(()=>{
+  
+  setLoaded(true)
+    
+  },[])
+  
+     useLayoutEffect(() => {
+    if(loaded === true){
+    let ctx = gsap.context(() => {
+
+      gsap.from('.parent', {
+             scrollTrigger: {
+               trigger: '.parent',
+               start: 'top top',
+               scrub: true,
+               pin:true,
+               pinSpacing:false,
+               pinType:'transform',
+             },
+             lazy: true,
+      
+           });
+    
+
+    });
+    return () => ctx.revert();}  
+  }, [loaded]);
+
+
+
+
+
   return (
-    <div className="w-[98%] portrait:w-[96%] portrait:flex-col portrait:flex">
+    <div  className="parent z-50  w-[98%] portrait:w-[96%] portrait:flex-col portrait:flex mb-4 pt-2">
       <div className="content w-full flex flex-row justify-between items-center pt-2">
         <div ref={logo} className="logo opacity-0 cursor-pointer object-contain w-[15vw] portrait:w-[32vw] pb-1">
           <Link onClick={menuBackAnimation} href={"/"}>
@@ -178,7 +217,7 @@ serviceListAnimation()
                   Services
                 </div>
               {showServicesDropdown && (
-               <div className="pt-2 absolute z-50 left-0  w-48">
+               <div className="pt-2 absolute  left-0  w-48">
  <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6] bg-white ring-1 ring-black ring-opacity-5">
                   <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     {serviceDropdownItems.map((item, index) => (
@@ -207,7 +246,7 @@ serviceListAnimation()
                   <Link href={link}
                     className={cn(
                       'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] transition duration-300 ease-in-out text-[#0D2323] ',
-                      logic && 'bg-[#162226] text-[#e8f7ed] hover:text-[#e0f3e6] shadow-lg',
+                      logic && 'bg-[#080e0f] text-[#e8f7ed] hover:text-[#e0f3e6] shadow-lg',
                       
                     )}
                   >
@@ -243,7 +282,7 @@ serviceListAnimation()
       
 
 
-<div ref={menudiv} className="menu opacity-0 landscape:hidden portrait:space-x-6 w-full left-0 h-[24vw] bg-[#162226] text-[#e9e2e0]   absolute z-50 top-[-0vw] flex justify-center items-center ">
+<div ref={menudiv} className="menu opacity-0 landscape:hidden portrait:space-x-6 w-full left-0 h-[24vw] bg-[#080e0f] text-[#e9e2e0]   absolute z-50 top-[-0vw] flex justify-center items-center ">
 
 
 <div

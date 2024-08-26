@@ -106,7 +106,7 @@ let about = '/about'
   
     </div>
   
-  <div className="copyRightDiv relative flex portrait:flex-col justify-between px-5 py-2 bg-[#282E30] text-[#EEF4F8]  text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[3.7vw]  "> <div className="preciousOG">site by PreciousOG</div>   <div className="prodigital">© 2024 Formosa Investments - All Rights Reserved</div> </div>
+  <div className="copyRightDiv relative flex portrait:flex-col justify-between px-5 py-2 bg-[#1f282a] text-[#EEF4F8]  text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[3.7vw]  "> <div className="preciousOG">site by PreciousOG</div>   <div className="prodigital">© 2024 Formosa Investments - All Rights Reserved</div> </div>
   
   
   

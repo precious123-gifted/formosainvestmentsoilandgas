@@ -3,13 +3,16 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import Bounded from '../../app/components/Bounded';
-import React, { MutableRefObject, RefObject, useRef } from "react";
+import React, { MutableRefObject, RefObject, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicNextLink } from "@prismicio/next";
 import { InView } from "react-intersection-observer";
 import SplitType from "split-type";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger)
 
 /**
  * Props for `Homeproducts`.
@@ -76,15 +79,107 @@ const Homeproducts = ({ slice }: HomeproductsProps): JSX.Element => {
  
   };
 
+
+
+
+ 
+const [loaded,setLoaded] = useState(false)
+
+
+useEffect(()=>{
+
+setLoaded(true)
+
+
+
+},[])
+
+  useGSAP(() => {
+  if(loaded === true){
+    ScrollTrigger.create({
+trigger:'.writeup-cont',
+start: 'top 120px',
+end:  "bottom bottom",
+pin:'.image-cont',
+pinReparent:true,
+pinSpacing:false,
+pinType:'fixed',
+
+})
+}
+
+  }, [loaded]);
+  
+
+
+
+  useLayoutEffect(() => {
+
+    if(loaded === true){
+
+
+      const animation = gsap.timeline({ yoyo: true });
+  animation.to("#product-image0", {
+				opacity: 1, scale: 1, duration: 0.3,stagger:0.3
+			})
+      const animation1 = gsap.timeline({ yoyo: true });
+  animation1.to("#product-image1", {
+				opacity: 1, scale: 1, duration: 0.3,stagger:0.3
+			})
+      const animation2 = gsap.timeline({ yoyo: true });
+  animation2.to("#product-image2", {
+				opacity: 1, scale: 1, duration: 0.3,stagger:0.3
+			})
+  
+
+  
+
+			ScrollTrigger.create({
+				trigger: "#product-writeup0",
+				start: "top bottom",
+				end: "bottom top",
+				animation: animation,
+				scrub: true,
+				
+			})
+			ScrollTrigger.create({
+				trigger: "#product-writeup0",
+				start: "bottom center",
+				// end: "bottom top",
+				animation: animation1,
+				scrub: true,
+				
+			})
+			ScrollTrigger.create({
+				trigger: "#product-writeup1",
+				start: "bottom center",
+				// end: "bottom top",
+				animation: animation2,
+				scrub: true,
+        
+				
+			})
+		 
+
+  }
+  
+    }, [loaded]);
+
+
+
+
+ 
+
   
   return (
     <Bounded
     // data-slice-type={slice.slice_type}
     // data-slice-variation={slice.variation}
-   className="  text-[#333D3E] bg-[#EDF4F6]" 
+   className=" text-[#c5d4d6] mt-[-20vw]  pb-[10vw] bg-[#1f282a] overflow-hidden" 
     >
-<div className="content w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
-<div>
+<div className="contentz w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
+
+<div ref={headerref} className="">
 {slice.primary.header?.split('').map((letter,index)=>(
 
   <span key={index} className="relative">
@@ -110,47 +205,52 @@ const Homeproducts = ({ slice }: HomeproductsProps): JSX.Element => {
 
       
 
-      <div className="space-y-16 flex flex-col items-center  ">
-        <div   className="hairProductsContainer w-full grid  portrait:grid-cols-1 landscape:grid-cols-3  gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   gap-y-20"> 
-        {slice.primary.product_container.map((product:any,index:number) => (
+      <div className="space-y-16 flex flex-col items-center w-full  ">
+        <div   className="productsContainer w-full grid  portrait:grid-cols-1 landscape:grid-cols-1  gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   gap-y-20"> 
+        
           <div
-            key={product._id}
-            id={product._id}
-            ref={productrefs.current[index] = React.createRef<HTMLDivElement>()}
+          
             // onClick={()=>{microActionOnProductClick(productrefs.current[index])}}
             className="hairProduct   transition duration-200 ease-in
-              w-auto flex flex-col items-center text-start  space-y-1"
+              w-full flex flex-col items-center text-start "
           >
-            <div className="flex flex-col items-start">
-            <InView as="div" onChange={(inView, entry) => opacityAnimation(imagerefs.current[index],0.4,inView)}>
+            <div className="landscape:flex justify-between w-[100%] landscape:space-x-1">
+
+<div className="products-photo w-[50%] portrait:w-full portrait:mb-[10vw]">
+
+<div className="image-cont w-[100%] pointer-events-none  flex flex-col  ">
+
+      {slice.primary.product_container.map((product:any,index:number) => (
+              <div
+              key={product._id}
+              id={`product-image${index}`}
+              ref={productrefs.current[index] = React.createRef<HTMLDivElement>()} className="product-image-div absolute opacity-0">
 <div
 ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()}
-className="productImage cursor-pointer w-[18vw] mb-3 portrait:w-full object-contain">
-                <PrismicNextImage  field={product.product_image} className="rounded-md"/>
+className="productImage cursor-pointer  mb-3 portrait:w-full ">
+                <PrismicNextImage  field={product.product_image} className="rounded-md w-[80%]"/>
               </div>
 
-            </InView>
+            </div>
+        ))}
+</div>
 
-              
-       <div key={index} className="relative" >
-             {/* {product.title.split('').map((letter:any,index:number)=>(
+</div>
+      
 
 
-<InView as="span" key={index} 
-onChange={(inView, entry) => opacityAndLetterAnimation2(splittitlerefs.current[index],0.1,inView)}
-   className="productTitle  w-[12vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"
-  > <span className="opacity-0"
-ref={splittitlerefs.current[index] = React.createRef<HTMLSpanElement>()}
-  
-  > {letter}</span> </InView>
+<div className="writeup-cont  w-[50%] portrait:w-full flex flex-col   space-y-[18vw]">
+{slice.primary.product_container.map((product:any,index:number) => (
 
- 
-))}  */}
+          <div
+          key={product._id}
+          id={`product-writeup${index}`} className="writup_div landscape:w-[100%] ">
+   <div key={index} className="" >
               
               <InView as="div" key={index} 
 onChange={(inView, entry) => opacityAnimation(headerrefs.current[index],0.1,inView)}
-   className="productTitle  w-[12vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"
-  > <span className="opacity-0"
+   className="productTitle  w-full portrait:w-full  cursor-pointer text-[#2a9457] text-[2.6vw] portrait:text-[6vw] text-nowrap portrait:text-wrap mb-1 portrait:mb-3"
+  > <span className="opacity-0 border-2 border-r-gray-700 border-b-gray-700 p-1"
 ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
   
   > {product.title}</span> </InView>     
@@ -158,21 +258,33 @@ ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
               </div> 
 
 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(writeuprefs.current[index],0.4,inView)}>
+<InView as="div" onChange={(inView, entry) => opacityAnimation(writeuprefs.current[index],0.4,inView)} className="w-full">
 
  <div 
             ref={writeuprefs.current[index] = React.createRef<HTMLDivElement>()}
             
-            className="productDescription opacity-0 w-[20vw] portrait:w-full  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.description}</div>
+            className="productDescription opacity-0 w-[100%] portrait:w-full  cursor-pointer text-[2vw]   portrait:text-[4vw] portrait:sm:text-[3vw]">{product.description}</div>
 
 
 </InView>
+
+
+          </div>
+
+))}
+
+<div className="writeup-cont  "></div>
+</div>
+
+    
+
+
+
 
            
 
             </div>
           </div>
-        ))}
 
 
       </div>
@@ -186,7 +298,7 @@ ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
 </InView>
 
 <InView as="div" onChange={(inView, entry) => opacityAnimation(button,0.4,inView)}>
-<PrismicNextLink  field={slice.primary.all_products_button}> <div ref={button} className="button opacity-0 bg-[#423B17] text-[#EDF4F6] cursor-pointer portrait:px-[22vw] px-[8vw] py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.2s]  ease-in-out "> All Products</div> </PrismicNextLink> 
+<PrismicNextLink  field={slice.primary.all_products_button}> <div ref={button} className="button opacity-0 bg-[#a99c60] text-[#1d3840] cursor-pointer portrait:px-[22vw] px-[8vw] py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.2s]  ease-in-out "> All Products</div> </PrismicNextLink> 
 
 </InView>
 

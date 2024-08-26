@@ -3,10 +3,11 @@
 import Bounded from "@/app/components/Bounded";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import React, { MutableRefObject, RefObject, useRef } from "react";
+import React, { MutableRefObject, RefObject, useEffect, useLayoutEffect, useRef } from "react";
 import { InView } from "react-intersection-observer";
 import gsap from 'gsap'
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
 
 /**
  * Props for `Whyus`.
@@ -55,14 +56,108 @@ const Whyus = ({ slice }: WhyusProps): JSX.Element => {
  
   };
 
+  const headerRef = useRef(null)
+  const content = useRef(null)
+
+//   useEffect(()=>{
+  
+//   let ctx = gsap.context(()=>{
+
+// gsap.set(writeup.current,{marginLeft:'50px',})
+
+//   })
+
+//   const animation = gsap.to(writeup.current,{marginLeft:'0px',})
+
+//     ScrollTrigger.create({
+      
+//         trigger: content.current,
+//         start: 'top top',
+//         scrub: true,
+//         pin: writeup.current,
+//         animation:animation,
+//         refreshPriority: 3,
+//         markers: {startColor: 'green', endColor: 'red', fontSize: '12px'}
+      
+//     });
+
+//     return ()=> ctx.revert()
+  
+//   },[])
+
+const pinnedAnimation = ()=>{
+
+
+  // let ctx = gsap.context(()=>{
+
+  //   gsap.set(writeup.current,{marginLeft:'50px',})
+    
+  //     })
+    
+  //     const animation = gsap.to(writeup.current,{marginLeft:'0px',})
+    
+  //       ScrollTrigger.create({
+          
+  //           trigger: content.current,
+  //           start: 'top top',
+  //           end:'+=2000px',
+
+  //           scrub: true,
+  //           pin: writeup.current,
+  //           animation:animation,
+  //           refreshPriority: 3,
+  //           // markers: {startColor: 'green', endColor: 'red', fontSize: '12px'}
+          
+  //       });
+    
+  //       return ()=> ctx.revert()
+
+
+//         gsap.to(writeup.current,{
+// stagger:0.5,
+// scrollTrigger:{
+
+// trigger:writeup.current,
+// start:'top top',
+// scrub:true,
+
+// }
+
+
+//         })
+
+} 
+
+
+useLayoutEffect(() => {
+  let ctx = gsap.context(() => {
+
+    gsap.from('.contenten', {
+           scrollTrigger: {
+             trigger: '.contenten',
+             start: 'top top',
+             scrub: true,
+             pin:true,
+             pinSpacing:false,
+             snap:0,
+           },
+           lazy: true,
+    
+         });
+  
+
+  });
+  return () => ctx.revert(); // <- cleanup!
+}, []);
+
 
   return (
     <Bounded
     data-slice-type={slice.slice_type}
     data-slice-variation={slice.variation}
-   className="  text-[#FBFFFE] bg-[#162226] pb-8 " >
+   className="contenten hidden  text-[#FBFFFE] bg-[#162226] pb-8  " >
    
-  <div className=" content w-full  flex   portrait:flex-col rounded-xl relative">
+  <div ref={content} className=" w-full  flex h-[60vh]  portrait:flex-col rounded-xl relative z-10">
 
 
 
@@ -84,15 +179,15 @@ className="header opacity-0 text-[3vw] portrait:text-[6vw] portrait:sm:mb-8">
 ))}
 </div>
 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(writeup,0.4,inView)}>
+<InView as="div" onChange={(inView, entry) => opacityAnimation(writeup2,0.4,inView)}>
 
-<div ref={ writeup} className="writeup opacity-1 text-[1.4vw] portrait:text-[4.3vw]">{slice.primary.writeup1}</div>
+<div ref={ writeup} className="writeupen opacity-1 text-[1.4vw] portrait:text-[4.3vw]">{slice.primary.writeup1}</div>
 </InView>
 
 
-<InView as="div" onChange={(inView, entry) => opacityAnimation(writeup2,0.4,inView)}>
+<InView as="div" ref={writeup2} onChange={(inView, entry) => opacityAnimation(writeup2,0.4,inView)}>
 
-<div ref={ writeup2} className="writeup opacity-1 text-[1.4vw] portrait:text-[4.3vw]">{slice.primary.writeup2}</div>
+<div className="writeup2 opacity-1 text-[1.4vw] portrait:text-[4.3vw]">{slice.primary.writeup2}</div>
 </InView>
 
  

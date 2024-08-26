@@ -3,11 +3,13 @@
 
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import Bounded from '../../app/components/Bounded';
+import Bounded from '../../app/components/ServicesBounded';
 import { PrismicNextImage } from "@prismicio/next";
-import React, { MutableRefObject, RefObject, useRef } from "react";
+import React, { MutableRefObject, RefObject, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { InView } from "react-intersection-observer";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
 
 /**
  * Props for `Homeservices`.
@@ -30,7 +32,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
   const button = useRef(null)
 
 
-  const opacityAnimation = (ref: RefObject<HTMLDivElement>, time: number,inView:boolean) => {
+  const opacityAnimation = (ref: RefObject<HTMLDivElement>, time: number,inView:boolean,index:number) => {
   
     gsap.to(ref.current, time, {
       opacity: inView? '100%':'0',
@@ -38,6 +40,40 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
       ease: "expo.in",
     });
   
+
+    
+switch (index) {
+  case 0: gsap.to(".box-writeup", time, {
+    opacity: inView? '100%':'0',
+    scrub: 1,
+    ease: "expo.in",
+  });
+    
+    break;
+  case 1: gsap.to(".box-writeup1", time, {
+    opacity: inView? '100%':'0',
+    scrub: 1,
+    ease: "expo.in",
+  });
+    break;
+  case 2: gsap.to(".box-writeup2", time, {
+    opacity: inView? '100%':'0',
+    scrub: 1,
+    ease: "expo.in",
+  });
+    break;
+  case 3: gsap.to(".box-writeup3", time, {
+    opacity: inView? '100%':'0',
+    scrub: 1,
+    ease: "expo.in",
+  });
+    
+    break;
+
+  default:
+    break;
+}
+
  
   };
 
@@ -61,89 +97,188 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
   };
 
 
+  const content = useRef(null)
+  const view = useRef(null)
+
+
+  const [loaded,setLoaded] = useState(false)
+
+
+  useEffect(()=>{
+  
+  setLoaded(true)
+  
+  
+  
+  },[])
+
+
+
+  useLayoutEffect(() => {
+    if (loaded === true) {
+      let ctx = gsap.context(() => {
+  
+        const timeline = gsap.timeline({ yoyo: true });
+        const serviceTimeline = gsap.timeline({ yoyo: true });
+   
+        timeline
+          .to('.services', { backgroundColor:'#0f0908', duration: 2, ease: "power3.out" }) 
+          serviceTimeline
+          .to('.service-pin-container', { opacity:0.2, duration: 4, ease: "power3.out" }) 
+          .to('.service-pin-container', { opacity:1, duration: 4, ease: "power3.out" }) 
+          
+          
+        
+        ScrollTrigger.create({
+          trigger: '.services',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          animation: timeline
+        });
+       
+        ScrollTrigger.create({
+          trigger: '.weoffer-trigger',
+          start: 'bottom 100px',
+          // end: 'bottom bottom',
+          scrub: true,
+          animation: serviceTimeline
+        });
+       
+  
+
+        ScrollTrigger.create({
+          trigger:'.service-pin-container',
+          start: 'top top',
+          end:  "bottom top",
+          scrub: true,
+          pin:'.service-box-div',
+          pinReparent:true,
+          pinSpacing:false,
+          anticipatePin: 0.1,
+          pinType:'fixed',
+           
+         })
+     
+         
+        
+
+         gsap.set(".services-photo:not(:first-child)", { opacity: 0, scale: 0.8 })
+
+         const animation = gsap.timeline({ yoyo: true });
+     animation.to(".services-photo:not(:first-child)", {
+           opacity: 1, scale: 1, duration: 0.1,stagger:0.3
+         })
+     
+   
+     
+   
+         ScrollTrigger.create({
+           trigger: ".service-pin-container",
+           start: "top bottom",
+           end: "bottom bottom",
+           animation: animation,
+           scrub: true,
+           
+         })
+        
+   
+      
+        
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return () => ctx.revert(); 
+      });
+    }
+  }, [loaded]);
+
+  
+
+
+ 
+   
 
   return (
-    <Bounded
-    // data-slice-type={slice.slice_type}
-    // data-slice-variation={slice.variation}
-   className="  text-[#333D3E] bg-[#EDF4F6]" 
+    <Bounded  
+   
+   className="services pt-[18vw] pb-[18vw] overflow-hidden  text-[#EDF4F6] bg-[#080e0f]" 
+  
     >
-<div id="services" className="content w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
+
+<div ref={content} id="services" className="services-content h-full w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
  
-
-<div>
-        {slice.primary.header?.split('').map((letter,index)=>(
-
-<span key={index} className="relative">
-
-<InView as="div" onChange={(inView, entry) => opacityAndLetterAnimation(splitheaderrefs.current[index],0.1,inView)} className="absolute"/>
-
-<span key={index} ref={splitheaderrefs.current[index] = React.createRef<HTMLSpanElement>()} 
- className="heading opacity-0 text-[2vw] portrait:sm:text-[4vw] portrait:text-[6vw]  portrait:mb-10 ">
-  {letter}
- </span>
-</span>
-))}
+<div className="weoffer-trigger text-[3vw] portrait:text-[6vw] mb-[8vw] portrait:sm:mb-8">
+We Offer a Wide Range of Services
 </div>
 
-<div className="hairsection w-full ">
+
+<div className=" w-full ">
 
 
   
           
-         
-
+    <div className="service-pin-container opacity-0 flex flex-col items-center">
       
 
-      <div className="space-y-16 flex flex-col items-center  ">
-        <div   className="ProductsContainer w-full grid  portrait:grid-cols-1 landscape:grid-cols-2  gap-1 portrait:gap-[4vw] portrait:sm:gap-[4vw]   gap-y-1"> 
+<div className="service-box-div border-4 border-[#8da054]  flex flex-col w-[90vw] h-[9vw]     ">
+
+<div className="header_section h-full w-full   flex justify-between   text-[#d8e4b1] text-[2vw]">
+<div className="header h-full flex-grow     "><div className="boxcontent w-full h-full flex justify-center items-center bg-[#131c29]"><div className="box-writeup opacity-0">We do Offshore</div> </div> </div>
+<div className="header h-full flex-grow    "><div className="boxcontent w-full h-full flex justify-center items-center bg-[#131c29]  "><div className="box-writeup1 opacity-0">We Market Petroleum and Gas</div></div> </div>
+<div className="header h-full flex-grow     "><div className="boxcontent w-full h-full flex justify-center items-center bg-[#131c29]  "><div className="box-writeup2 opacity-0">We Offer Storage</div></div> </div>
+<div className="header h-full flex-grow    "><div className="boxcontent w-full h-full flex justify-center items-center bg-[#131c29] "><div className="box-writeup3 opacity-0">We do Bunkering</div></div> </div>
+</div>
+
+
+
+</div>
+
+      <div className="space-y-16 h-full flex flex-col items-center  ">
+        <div   className="ProductsContainer h-full relative w-full grid  portrait:grid-cols-1   gap-1 portrait:gap-[4vw] portrait:sm:gap-[4vw]   gap-y-1"> 
+          <div className="services-photo rounded-md"></div>
         {slice.primary.services_container.map((product:any,index:number) => (
+          
+          <>
           <div
             key={product._id}
             id={`services${index}`}
             ref={productrefs.current[index] = React.createRef<HTMLDivElement>()}
             // onClick={()=>{microActionOnProductClick(productrefs.current[index])}}
-            className="hairProduct   transition duration-200 ease-in
-              w-auto flex flex-col items-center text-start  space-y-1"
+            className="services-photo  transition duration-200 ease-in
+              w-auto flex flex-col items-center text-start  "
           >
-            <div className="flex flex-col items-start">
-<InView as="div" onChange={(inView, entry) => opacityAnimation(imagerefs.current[index],0.4,inView)}>
+
+
             
-            <div 
-            ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="productImage opacity-0 cursor-pointer w-[47vw] mb-3 portrait:w-full object-contain">
-                <PrismicNextImage  field={product.service_image} className="rounded-md"/>
+            <div className=" flex flex-col items-start ">
+<InView as="div" onChange={(inView, entry) => opacityAnimation(imagerefs.current[index],0.4,inView,index)}>
+
+ 
+
+      <div ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="rounded-lg productImage relative flex justify-center  opacity-0 cursor-pointer w-[90vw] h-[40vw] overflow-hidden mb-3 portrait:w-full ">
+                <PrismicNextImage   field={product.service_image} className=" mt-[-10vw] rounded-lg "/>
+
+               
               </div>
 </InView>
-
-{/* <InView as="div" onChange={(inView, entry) => opacityAnimation(headerrefs.current[index],0.4,inView)}>
-
-              <div
-            ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
-              
-              className="productTitle opacity-0 w-[30vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw]  portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header1}</div></div>
-</InView>
-
-<InView as="div" onChange={(inView, entry) => opacityAnimation(header2refs.current[index],0.4,inView)}>
-
-              <div
-            ref={header2refs.current[index] = React.createRef<HTMLDivElement>()}
-              
-              className="productTitle opacity-0 w-[30vw] portrait:w-full  cursor-pointer text-[1.6vw] portrait:text-[6vw]  portrait:text-wrap mb-1 portrait:mb-3"><div >{product.service_header2}</div></div>
-
-</InView>
-
-<InView as="div" onChange={(inView, entry) => opacityAnimation(writeuprefs.current[index],0.4,inView)}>
-
-            <div 
-            ref={writeuprefs.current[index] = React.createRef<HTMLDivElement>()}
-            
-            className="productDescription opacity-0 w-[30vw] portrait:w-full  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.service_writeup}</div>
-
-</InView> */}
-
+ 
 
             </div>
+
           </div>
+          </>
         ))}
 
 
@@ -151,6 +286,8 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
 
   
       </div>
+      </div>     
+
       </div>
       </div>
       </Bounded>
