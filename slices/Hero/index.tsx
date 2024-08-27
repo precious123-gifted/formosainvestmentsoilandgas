@@ -143,13 +143,12 @@ const whyusAnimation = () => {
 
 
 
-useLayoutEffect(() => {
+useGSAP(() => {
   if (loaded === true) {
     let ctx = gsap.context(() => {
 
 
 whyusAnimation()
-      return () => ctx.revert(); // Cleanup function
     });
   }
 }, [loaded]);
