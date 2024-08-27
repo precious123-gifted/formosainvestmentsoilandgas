@@ -100,6 +100,7 @@ useGSAP(() => {
             end: 'bottom bottom',
             scrub: true,
             pin: true,
+            pinSpacing:false,
             pinType: 'fixed',
             animation: timeline,
           });
@@ -222,7 +223,7 @@ const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
     <Bounded 
     // data-slice-type={slice.slice_type}
     // data-slice-variation={slice.variation}
-   className="hero  h-[560vh] portrait:h-[300vh]  portrait:text-[#E7FEFF]  overflow-hidden" >
+   className="hero  h-[580vh] portrait:h-[300vh]  portrait:text-[#E7FEFF]  overflow-hidden" >
  
 
    
