@@ -267,7 +267,7 @@ We Offer a Wide Range of Services
 
  
 
-      <div ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="rounded-lg productImage relative flex justify-center  opacity-0 cursor-pointer w-[90vw] h-[40vw] overflow-hidden mb-3 portrait:w-full ">
+      <div ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="rounded-lg productImage relative flex justify-center  opacity-0 cursor-pointer w-[90vw] h-[40vw] portrait:h-[100%] overflow-hidden mb-3 portrait:w-full ">
                 <PrismicNextImage   field={product.service_image} className=" mt-[-10vw] rounded-lg "/>
 
                

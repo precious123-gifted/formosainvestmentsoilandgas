@@ -222,7 +222,7 @@ const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
     <Bounded 
     // data-slice-type={slice.slice_type}
     // data-slice-variation={slice.variation}
-   className="hero  h-[560vh] portrait:h-[400vh]  portrait:text-[#E7FEFF]  overflow-hidden" >
+   className="hero  h-[560vh] portrait:h-[300vh]  portrait:text-[#E7FEFF]  overflow-hidden" >
  
 
    
@@ -257,7 +257,7 @@ const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
   </div>
 
 
-  <div ref={content} className="whyus-content w-full text-[#FBFFFE] flex h-[140vh] portrait:pt-[30vw]   portrait:flex-col rounded-xl relative z-10">
+  <div ref={content} className="whyus-content w-full text-[#FBFFFE] flex   portrait:pt-[30vw]   portrait:flex-col rounded-xl relative z-10">
 
 
 

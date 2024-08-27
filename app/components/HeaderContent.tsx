@@ -47,6 +47,7 @@ export default function HeaderContent({settings}: any) {
   ];
 
   const loadingAnimation = useEffect(()=>{
+    if(loaded === true)
     displayElementWhenPageLoads(logo,0.5,150)
     displayElementWhenPageLoads(desktoplinks,0.5,300)
     displayElementWhenPageLoads(carticon,0.5,500)
@@ -143,28 +144,7 @@ serviceListAnimation()
     
   },[])
   
-     useLayoutEffect(() => {
-    if(loaded === true){
-    let ctx = gsap.context(() => {
-
-      gsap.from('.parent', {
-             scrollTrigger: {
-               trigger: '.parent',
-               start: 'top top',
-               scrub: true,
-               pin:true,
-               pinSpacing:false,
-               pinType:'transform',
-             },
-             lazy: true,
-      
-           });
-    
-
-    });
-    return () => ctx.revert();}  
-  }, [loaded]);
-
+ 
 
 
 
