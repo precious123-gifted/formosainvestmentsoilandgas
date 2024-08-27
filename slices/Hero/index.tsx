@@ -100,7 +100,7 @@ useGSAP(() => {
             end: 'bottom bottom',
             scrub: true,
             pin: true,
-            pinSpacing:false,
+            pinReparent:false,
             pinType: 'fixed',
             animation: timeline,
           });
