@@ -155,7 +155,6 @@ switch (index) {
           pin:'.service-box-div',
           pinReparent:true,
           pinSpacing:false,
-          anticipatePin: 0.1,
           pinType:'fixed',
            
          })
