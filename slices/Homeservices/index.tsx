@@ -31,71 +31,24 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
   const headerref = useRef(null)
   const button = useRef(null)
 
-
-  const opacityAnimation = (ref: RefObject<HTMLDivElement>, time: number,inView:boolean,index:number) => {
-  
-    gsap.to(ref.current, time, {
-      opacity: inView? '100%':'0',
-      scrub: 1,
-      ease: "expo.in",
-    });
-  
-
-    
-switch (index) {
-  case 0: gsap.to(".box-writeup", time, {
-    opacity: inView? '100%':'0',
-    scrub: 1,
-    ease: "expo.in",
-  });
-    
-    break;
-  case 1: gsap.to(".box-writeup1", time, {
-    opacity: inView? '100%':'0',
-    scrub: 1,
-    ease: "expo.in",
-  });
-    break;
-  case 2: gsap.to(".box-writeup2", time, {
-    opacity: inView? '100%':'0',
-    scrub: 1,
-    ease: "expo.in",
-  });
-    break;
-  case 3: gsap.to(".box-writeup3", time, {
-    opacity: inView? '100%':'0',
-    scrub: 1,
-    ease: "expo.in",
-  });
-    
-    break;
-
-  default:
-    break;
-}
-
  
-  };
 
   type SplitHeaderRef = MutableRefObject<HTMLSpanElement | null>;
 
   const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
 
-  const opacityAndLetterAnimation = (ref: RefObject<HTMLSpanElement> , time: number, inView: boolean) => {
+  function matchMediaOrientation(orientation:string) {
+    if (typeof window !== 'undefined') {
+      const mediaQuery = window.matchMedia(orientation);
+      return mediaQuery.matches;
+    }
+    return false; // Or handle the case where window is not defined
+  }
   
   
-
-  
-    const timeline = gsap.timeline();
-  splitheaderrefs.current.forEach((ref)=>{
- timeline.to(ref.current, time, { opacity: inView ? 1 : 0, ease: "power1.easeIn" });
-    timeline.play(); 
-
-  })
-  
- 
-  };
-
+  // Example usage:
+  const isPortrait = matchMediaOrientation('(orientation: portrait)');
+  const isLandscape = matchMediaOrientation('(orientation: landscape)');
 
   const content = useRef(null)
   const view = useRef(null)
@@ -162,21 +115,55 @@ switch (index) {
          
         
 
-         gsap.set(".services-photo:not(:first-child)", { opacity: 0, scale: 0.8 })
+         gsap.set(".services-photo", { opacity: 0, scale: 0.8 })
 
          const animation = gsap.timeline({ yoyo: true });
-     animation.to(".services-photo:not(:first-child)", {
+         const animation1 = gsap.timeline({ yoyo: true });
+         const animation2 = gsap.timeline({ yoyo: true });
+         const animation3 = gsap.timeline({ yoyo: true });
+     animation.to(["#services0",".header"], {
+           opacity: 1, scale: 1, duration: 0.1,stagger:0.3
+         })
+     animation.to(["#services1",".header1"], {
+           opacity: 1, scale: 1, duration: 0.1,stagger:0.3
+         })
+     animation.to(["#services2",".header2"], {
+           opacity: 1, scale: 1, duration: 0.1,stagger:0.3
+         })
+     animation.to(["#services3",".header3"], {
            opacity: 1, scale: 1, duration: 0.1,stagger:0.3
          })
      
    
-     
-   
          ScrollTrigger.create({
-           trigger: ".service-pin-container",
-           start: "top bottom",
+           trigger: "#services0",
+           start: "top center",
            end: "bottom bottom",
            animation: animation,
+           scrub: true,
+           
+         })
+         ScrollTrigger.create({
+           trigger: "#services0",
+           start: "bottom center",
+          //  end: "bottom bottom",
+           animation: animation1,
+           scrub: true,
+           
+         })
+         ScrollTrigger.create({
+           trigger: "#services1",
+           start: "bottom center",
+          //  end: "bottom bottom",
+           animation: animation2,
+           scrub: true,
+           
+         })
+         ScrollTrigger.create({
+           trigger: "#services2",
+           start: "bottom center",
+          //  end: "bottom bottom",
+           animation: animation3,
            scrub: true,
            
          })
@@ -233,11 +220,11 @@ We Offer a Wide Range of Services
 
 <div className="service-box-div border-4 border-[#8da054]  flex flex-col w-[90vw] h-[9vw]     ">
 
-<div className="header_section h-full w-full   flex justify-between   text-[#d8e4b1] text-[2vw]">
-<div className="header h-full flex-grow     "><div className="boxcontent w-full h-full flex justify-center items-center bg-[#131c29]"><div className="box-writeup opacity-0">We do Offshore</div> </div> </div>
-<div className="header h-full flex-grow    "><div className="boxcontent w-full h-full flex justify-center items-center bg-[#131c29]  "><div className="box-writeup1 opacity-0">We Market Petroleum and Gas</div></div> </div>
-<div className="header h-full flex-grow     "><div className="boxcontent w-full h-full flex justify-center items-center bg-[#131c29]  "><div className="box-writeup2 opacity-0">We Offer Storage</div></div> </div>
-<div className="header h-full flex-grow    "><div className="boxcontent w-full h-full flex justify-center items-center bg-[#131c29] "><div className="box-writeup3 opacity-0">We do Bunkering</div></div> </div>
+<div className="header_section h-full w-full relative   flex justify-center bg-[#131c29]   text-[#d8e4b1] text-[2vw] portrait:text-[4vw]">
+<div className="header h-full flex-grow opacity-0   absolute  "><div className="boxcontent w-full h-full flex justify-center items-center px-[2vw]"><div className="box-writeup  ">We do Offshore</div> </div> </div>
+<div className="header1 h-full flex-grow opacity-0  absolute "><div className="boxcontent1 w-full h-full flex justify-center items-center px-[2vw] "><div className="box-writeup1  ">We Market Petroleum and Gas</div></div> </div>
+<div className="header2 h-full flex-grow opacity-0  absolute  "><div className="boxcontent2 w-full h-full flex justify-center items-center px-[2vw] "><div className="box-writeup2 ">We Offer Storage</div></div> </div>
+<div className="header3 h-full flex-grow opacity-0  absolute "><div className="boxcontent3 w-full h-full flex justify-center items-center px-[2vw]"><div className="box-writeup3 ">We do Bunkering</div></div> </div>
 </div>
 
 
@@ -262,16 +249,14 @@ We Offer a Wide Range of Services
 
             
             <div className=" flex flex-col items-start ">
-<InView as="div" onChange={(inView, entry) => opacityAnimation(imagerefs.current[index],0.4,inView,index)}>
 
  
 
-      <div ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="rounded-lg productImage relative flex justify-center  opacity-0 cursor-pointer w-[90vw] h-[40vw] portrait:h-[100%] overflow-hidden mb-3 portrait:w-full ">
+      <div ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()} className="rounded-lg productImage relative flex justify-center  cursor-pointer w-[90vw] h-[40vw] portrait:h-[100%] overflow-hidden mb-3 portrait:w-full ">
                 <PrismicNextImage   field={product.service_image} className=" mt-[-10vw] rounded-lg "/>
 
                
               </div>
-</InView>
  
 
             </div>

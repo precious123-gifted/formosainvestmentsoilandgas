@@ -46,7 +46,18 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
 
 
+  function matchMediaOrientation(orientation:string) {
+    if (typeof window !== 'undefined') {
+      const mediaQuery = window.matchMedia(orientation);
+      return mediaQuery.matches;
+    }
+    return false; // Or handle the case where window is not defined
+  }
   
+  
+  // Example usage:
+  const isPortrait = matchMediaOrientation('(orientation: portrait)');
+  const isLandscape = matchMediaOrientation('(orientation: landscape)');
   
     const loadingAnimation = useEffect(()=>{
   
@@ -93,18 +104,40 @@ useGSAP(() => {
         .to('.header2', { opacity: 1, duration: 4, ease: "power3.in" })
         .to(['.image','.header2'], { opacity: 0, duration: 9, ease: "power3.in" })
         
-      
-        const scrollTrigger =ScrollTrigger.create({
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: true,
-            pin: true,
-            pinReparent:false,
-            pinType: 'fixed',
-            animation: timeline,
-          });
-      
+        if(isLandscape){
+           
+                const scrollTrigger =ScrollTrigger.create({
+                    trigger: '.hero',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: true,
+                    snap:0,
+                    pin: true,
+                    pinReparent:false,
+                    pinType: 'fixed',
+                    animation: timeline,
+                  });
+              
+        
+        }
+        if(isPortrait){
+           
+                const scrollTrigger =ScrollTrigger.create({
+                    trigger: '.hero',
+                    start: 'top 10px',
+                    end: 'bottom bottom',
+                    scrub: true,
+                    snap:0,
+                    pin: true,
+                    pinReparent:false,
+                    pinType: 'fixed',
+                    animation: timeline,
+                  });
+              
+        
+        }
+   
+
         
     });
   }
