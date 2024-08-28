@@ -124,7 +124,7 @@ useGSAP(() => {
                     snap:0,
                     pin: true,
                     pinReparent:false,
-                    pinType: 'transform',
+                    pinType: 'fixed',
                     animation: timeline,
                   });
               
