@@ -6,7 +6,6 @@ import { SliceComponentProps } from "@prismicio/react";
 import Image from "next/image";
 import Link from "next/link";
 import backgroundImage from "../../public/bg_image.jpg"
-import backgroundImage2 from "../../public//bg_image.jpg"
 import { MutableRefObject, RefObject, useEffect, useLayoutEffect, useRef, useState } from "react";
 import displayElementWhenPageLoads from "@/app/animation-provider/animation";
 import gsap from "gsap";
@@ -51,11 +50,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       const mediaQuery = window.matchMedia(orientation);
       return mediaQuery.matches;
     }
-    return false; // Or handle the case where window is not defined
   }
   
   
-  // Example usage:
   const isPortrait = matchMediaOrientation('(orientation: portrait)');
   const isLandscape = matchMediaOrientation('(orientation: landscape)');
   
@@ -90,14 +87,11 @@ useGSAP(() => {
   if (loaded) {
     let ctx = gsap.context(() => {
 
-      // Define a timeline
       const timeline = gsap.timeline({ yoyo: true });
 
-      // Set initial opacity for header 1 (optional but recommended)
       gsap.set('.header1', { opacity: 1 });
       gsap.set('.button', { opacity: 1 });
 
-      // Add header animations to the timeline
       timeline
         .to('.header1', { opacity: 0, duration: 2, ease: "power3.out" }) 
         .to('.button', { opacity: 0, duration: 2, ease: "power3.out" })
@@ -124,7 +118,7 @@ useGSAP(() => {
            
                 const scrollTrigger =ScrollTrigger.create({
                     trigger: '.hero',
-                    start: 'top 10px',
+                    start: 'top 1px',
                     end: 'bottom bottom',
                     scrub: true,
                     snap:0,
@@ -164,8 +158,6 @@ const whyusAnimation = () => {
 
       ScrollTrigger.create({
         trigger: '.whyus-content',
-        start: 'top center', // Adjust start/end based on visibility needs
-        end: 'bottom top',  // Adjust start/end based on visibility needs
         scrub: true,
         animation: whyusTimeline,
          
@@ -200,8 +192,6 @@ const writeup1Animation = () => {
 
       ScrollTrigger.create({
         trigger: '.whyus',
-        start: 'bottom bottom', // Adjust start/end based on visibility needs
-        end: 'bottom top',  // Adjust start/end based on visibility needs
         scrub: true,
         animation: writeupTimeline,
          
@@ -254,8 +244,6 @@ const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
   return (
   <>
     <Bounded 
-    // data-slice-type={slice.slice_type}
-    // data-slice-variation={slice.variation}
    className="hero  h-[580vh] portrait:h-[300vh]  portrait:text-[#E7FEFF]  overflow-hidden" >
  
 
