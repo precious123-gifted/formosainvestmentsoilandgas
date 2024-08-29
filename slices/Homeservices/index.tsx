@@ -192,7 +192,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
           ScrollTrigger.create({
             trigger: "#services1",
             start: "bottom top",
-            end: "bottom bottom",
+            end: "top bottom",
             animation: animation2,
             scrub: true,
             
@@ -200,7 +200,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
           ScrollTrigger.create({
             trigger: "#services2",
             start: "bottom top",
-            end: "bottom bottom",
+            end: "top bottom",
             animation: animation3,
             scrub: true,
             
