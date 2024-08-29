@@ -126,15 +126,14 @@ if(isPortrait){
 
   ScrollTrigger.create({
     trigger:'.contentz',
-    start: 'top top',
+    start: 'top 120px',
     end:  "bottom bottom",
     pin:'.image-cont',
     pinReparent:false,
     pinSpacing:false,
-    pinType:'fixed',
+    pinType:'transform',
     
     })
-
 
 
 
