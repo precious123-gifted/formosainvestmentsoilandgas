@@ -124,13 +124,13 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
      animation.to(["#services0",".header"], {
            opacity: 1, scale: 1, duration: 0.1,stagger:0.3
          })
-     animation.to(["#services1",".header1"], {
+     animation1.to(["#services1",".header1"], {
            opacity: 1, scale: 1, duration: 0.1,stagger:0.3
          })
-     animation.to(["#services2",".header2"], {
+     animation2.to(["#services2",".header2"], {
            opacity: 1, scale: 1, duration: 0.1,stagger:0.3
          })
-     animation.to(["#services3",".header3"], {
+     animation3.to(["#services3",".header3"], {
            opacity: 1, scale: 1, duration: 0.1,stagger:0.3
          })
      
@@ -146,7 +146,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
          ScrollTrigger.create({
            trigger: "#services0",
            start: "bottom center",
-          //  end: "bottom bottom",
+           end: "bottom bottom",
            animation: animation1,
            scrub: true,
            
@@ -154,7 +154,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
          ScrollTrigger.create({
            trigger: "#services1",
            start: "bottom center",
-          //  end: "bottom bottom",
+           end: "bottom bottom",
            animation: animation2,
            scrub: true,
            
@@ -162,7 +162,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
          ScrollTrigger.create({
            trigger: "#services2",
            start: "bottom center",
-          //  end: "bottom bottom",
+           end: "bottom bottom",
            animation: animation3,
            scrub: true,
            
@@ -170,6 +170,43 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
         
    
       
+         if(isPortrait){
+
+
+          ScrollTrigger.create({
+            trigger: "#services0",
+            start: "top center",
+            end: "bottom bottom",
+            animation: animation,
+            scrub: true,
+            
+          })
+          ScrollTrigger.create({
+            trigger: "#services0",
+            start: "bottom top",
+            end: "bottom bottom",
+            animation: animation1,
+            scrub: true,
+            
+          })
+          ScrollTrigger.create({
+            trigger: "#services1",
+            start: "bottom top",
+            end: "bottom bottom",
+            animation: animation2,
+            scrub: true,
+            
+          })
+          ScrollTrigger.create({
+            trigger: "#services2",
+            start: "bottom top",
+            end: "bottom bottom",
+            animation: animation3,
+            scrub: true,
+            
+          })
+
+         }
         
    
 
@@ -218,13 +255,13 @@ We Offer a Wide Range of Services
     <div className="service-pin-container opacity-0 flex flex-col items-center">
       
 
-<div className="service-box-div border-4 border-[#8da054]  flex flex-col w-[90vw] h-[9vw]     ">
+<div className="service-box-div border-4 border-[#8da054]  flex flex-col w-[90vw] h-[9vw] portrait:h-[20vw]     ">
 
-<div className="header_section h-full w-full relative   flex justify-center bg-[#131c29]   text-[#d8e4b1] text-[2vw] portrait:text-[4vw]">
-<div className="header h-full flex-grow opacity-0   absolute  "><div className="boxcontent w-full h-full flex justify-center items-center px-[2vw]"><div className="box-writeup  ">We do Offshore</div> </div> </div>
-<div className="header1 h-full flex-grow opacity-0  absolute "><div className="boxcontent1 w-full h-full flex justify-center items-center px-[2vw] "><div className="box-writeup1  ">We Market Petroleum and Gas</div></div> </div>
-<div className="header2 h-full flex-grow opacity-0  absolute  "><div className="boxcontent2 w-full h-full flex justify-center items-center px-[2vw] "><div className="box-writeup2 ">We Offer Storage</div></div> </div>
-<div className="header3 h-full flex-grow opacity-0  absolute "><div className="boxcontent3 w-full h-full flex justify-center items-center px-[2vw]"><div className="box-writeup3 ">We do Bunkering</div></div> </div>
+<div className="header_section h-full w-full   flex justify-center bg-[#131c29]   text-[#d8e4b1] text-[2vw] portrait:text-[4vw]">
+<div className="header h-full flex-grow opacity-0     "><div className="boxcontent w-full h-full flex justify-center items-center px-[2vw]"><div className="box-writeup  ">We do Offshore</div> </div> </div>
+<div className="header1 h-full flex-grow opacity-0   "><div className="boxcontent1 w-full h-full flex justify-center items-center px-[2vw] "><div className="box-writeup1  ">We Market Petroleum and Gas</div></div> </div>
+<div className="header2 h-full flex-grow opacity-0    "><div className="boxcontent2 w-full h-full flex justify-center items-center px-[2vw] "><div className="box-writeup2 ">We Offer Storage</div></div> </div>
+<div className="header3 h-full flex-grow opacity-0   "><div className="boxcontent3 w-full h-full flex justify-center items-center px-[2vw]"><div className="box-writeup3 ">We do Bunkering</div></div> </div>
 </div>
 
 
@@ -233,17 +270,17 @@ We Offer a Wide Range of Services
 
       <div className="space-y-16 h-full flex flex-col items-center  ">
         <div   className="ProductsContainer h-full relative w-full grid  portrait:grid-cols-1   gap-1 portrait:gap-[4vw] portrait:sm:gap-[4vw]   gap-y-1"> 
-          <div className="services-photo rounded-md"></div>
+          <div className="services-photo rounded-md "></div>
         {slice.primary.services_container.map((product:any,index:number) => (
           
-          <>
+           
           <div
             key={product._id}
             id={`services${index}`}
             ref={productrefs.current[index] = React.createRef<HTMLDivElement>()}
             // onClick={()=>{microActionOnProductClick(productrefs.current[index])}}
             className="services-photo  transition duration-200 ease-in
-              w-auto flex flex-col items-center text-start  "
+              w-auto flex flex-col items-center text-start portrait:mb-[20vw]  "
           >
 
 
@@ -262,7 +299,6 @@ We Offer a Wide Range of Services
             </div>
 
           </div>
-          </>
         ))}
 
 
