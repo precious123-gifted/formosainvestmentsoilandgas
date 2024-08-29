@@ -49,6 +49,19 @@ const Homeproducts = ({ slice }: HomeproductsProps): JSX.Element => {
  
   };
 
+  function matchMediaOrientation(orientation:string) {
+    if (typeof window !== 'undefined') {
+      const mediaQuery = window.matchMedia(orientation);
+      return mediaQuery.matches;
+    }
+    return false; // Or handle the case where window is not defined
+  }
+  
+  
+  // Example usage:
+  const isPortrait = matchMediaOrientation('(orientation: portrait)');
+  const isLandscape = matchMediaOrientation('(orientation: landscape)');
+
 
   const opacityAndLetterAnimation = (ref: RefObject<HTMLSpanElement> , time: number, inView: boolean) => {
   
@@ -106,6 +119,30 @@ pinSpacing:false,
 pinType:'fixed',
 
 })
+
+
+
+if(isPortrait){
+
+  ScrollTrigger.create({
+    trigger:'.contentz',
+    start: 'top top',
+    end:  "bottom bottom",
+    pin:'.image-cont',
+    pinReparent:false,
+    pinSpacing:false,
+    pinType:'fixed',
+    
+    })
+
+
+
+
+
+}
+
+
+
 }
 
   }, [loaded]);
@@ -214,11 +251,11 @@ pinType:'fixed',
             className="hairProduct   transition duration-200 ease-in
               w-full flex flex-col items-center text-start "
           >
-            <div className="landscape:flex justify-between w-[100%] landscape:space-x-1">
+            <div className="landscape:flex justify-between w-[100%] landscape:space-x-1 portrait:space-y-[60vw]">
 
-<div className="products-photo w-[50%] portrait:w-full portrait:mb-[10vw]">
+<div className="products-photo w-[50%] portrait:w-full  ">
 
-<div className="image-cont w-[100%] pointer-events-none  flex flex-col  ">
+<div className="image-cont relative w-[100%] pointer-events-none  flex flex-col  ">
 
       {slice.primary.product_container.map((product:any,index:number) => (
               <div
@@ -239,7 +276,7 @@ className="productImage cursor-pointer  mb-3 portrait:w-full ">
       
 
 
-<div className="writeup-cont  w-[50%] portrait:w-full flex flex-col   space-y-[18vw]">
+<div className="writeup-cont  w-[50%] portrait:w-full flex flex-col    space-y-[18vw]">
 {slice.primary.product_container.map((product:any,index:number) => (
 
           <div
