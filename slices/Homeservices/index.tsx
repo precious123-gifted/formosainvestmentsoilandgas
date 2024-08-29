@@ -9,6 +9,7 @@ import React, { MutableRefObject, RefObject, useEffect, useLayoutEffect, useRef,
 import { InView } from "react-intersection-observer";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger)
 
 /**
@@ -67,7 +68,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
 
 
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     if (loaded === true) {
       let ctx = gsap.context(() => {
   
@@ -222,7 +223,6 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
 
 
 
-        return () => ctx.revert(); 
       });
     }
   }, [loaded]);
