@@ -211,7 +211,7 @@ if(isPortrait){
     <Bounded
     // data-slice-type={slice.slice_type}
     // data-slice-variation={slice.variation}
-   className=" text-[#c5d4d6]   pb-[10vw] bg-[#1f282a] overflow-hidden" 
+   className=" text-[#c5d4d6]   pb-[10vw] bg-[#151c1d] overflow-hidden" 
     >
 <div className="contentz w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
 
