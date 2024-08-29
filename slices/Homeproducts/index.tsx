@@ -126,13 +126,12 @@ if(isPortrait){
 
   ScrollTrigger.create({
     trigger:'.contentz',
-    start: 'top 120px',
+    start: 'top top',
     end:  "bottom bottom",
-    pin:'.image-cont',
-    pinReparent:false,
+    pin:'.products-photo',
+    pinReparent:true,
     pinSpacing:false,
-    pinType:'transform',
-    
+    pinType:'fixed',
     })
 
 
@@ -213,7 +212,7 @@ if(isPortrait){
     // data-slice-variation={slice.variation}
    className=" text-[#c5d4d6]   pb-[10vw] bg-[#151c1d] overflow-hidden" 
     >
-<div className="contentz w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[12vw]"> 
+<div className="contentz w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[0vw]"> 
 
 <div ref={headerref} className="">
 {slice.primary.header?.split('').map((letter,index)=>(
@@ -247,12 +246,12 @@ if(isPortrait){
           <div
           
             // onClick={()=>{microActionOnProductClick(productrefs.current[index])}}
-            className="hairProduct   transition duration-200 ease-in
+            className="productContainer   transition duration-200 ease-in
               w-full flex flex-col items-center text-start "
           >
             <div className="landscape:flex justify-between w-[100%] landscape:space-x-1 portrait:space-y-[60vw]">
 
-<div className="products-photo w-[50%] portrait:w-full  ">
+<div className="products-photo ease-linear transition-all duration-[9s] w-[50%] h-auto portrait:w-full  ">
 
 <div className="image-cont relative w-[100%] pointer-events-none  flex flex-col  ">
 
