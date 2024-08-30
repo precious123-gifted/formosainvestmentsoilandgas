@@ -132,7 +132,7 @@ if(isPortrait){
     pin:'.products-photo',
     pinReparent:true,
     pinSpacing:false,
-    pinType:'transform',
+    pinType:'fixed',
     })
 
 
@@ -252,9 +252,9 @@ if(isPortrait){
           >
             <div className="landscape:flex justify-between w-[100%] landscape:space-x-1 portrait:space-y-[60vw]">
 
-<div className="products-photo  w-[50%]  portrait:w-full  ">
+<div className="products-photo relative  w-[50%]  portrait:w-full  ">
 
-<div className="image-cont relative w-[100%] pointer-events-none  flex flex-col  ">
+<div className="image-cont  w-[100%] pointer-events-none  flex flex-col  ">
 
       {slice.primary.product_container.map((product:any,index:number) => (
               <div
