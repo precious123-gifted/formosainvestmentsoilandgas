@@ -241,8 +241,8 @@ if(isPortrait){
 
       
 
-      <div className="productsContainer space-y-16 flex flex-col items-center w-full  ">
-        <div   className=" w-full grid  portrait:grid-cols-1 landscape:grid-cols-1  gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   gap-y-20"> 
+      <div className="productsContainer landscape:space-y-16 portrait:space-y-16 flex flex-col items-center w-full  ">
+        <div   className=" w-full grid  portrait:grid-cols-1 landscape:grid-cols-1  landscpe:gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   landscape:gap-y-20"> 
         
           <div
           
@@ -250,7 +250,7 @@ if(isPortrait){
             className="productContainer   transition duration-200 ease-in
               w-full flex flex-col items-center text-start "
           >
-            <div className="landscape:flex justify-between w-[100%] landscape:space-x-1 portrait:space-y-[60vw]">
+            <div className="landscape:flex justify-between w-[100%] landscape:space-x-1 ">
 
 <div className="products-photo relative  w-[50%]  portrait:w-full  ">
 
