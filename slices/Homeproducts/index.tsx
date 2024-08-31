@@ -241,7 +241,7 @@ if(isPortrait){
 
       
 
-      <div className="productsContainer landscape:space-y-16 portrait:space-y-16 flex flex-col items-center w-full  ">
+      <div className="productsContainer landscape:space-y-16 portrait:space-y-20 flex flex-col items-center w-full  ">
         <div   className=" w-full grid  portrait:grid-cols-1 landscape:grid-cols-1  landscpe:gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   landscape:gap-y-20"> 
         
           <div
@@ -252,7 +252,7 @@ if(isPortrait){
           >
             <div className="landscape:flex justify-between w-[100%] landscape:space-x-1 ">
 
-<div className="products-photo relative  w-[50%]  portrait:w-full  ">
+<div className="products-photo portrait:mb-[20vw] relative  w-[50%]  portrait:w-full  ">
 
 <div className="image-cont  w-[100%] pointer-events-none  flex flex-col  ">
 
