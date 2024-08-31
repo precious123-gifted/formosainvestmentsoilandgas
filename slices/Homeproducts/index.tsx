@@ -125,7 +125,7 @@ pinType:'fixed',
 if(isPortrait){
 
   ScrollTrigger.create({
-    trigger:'.productsContainer',
+    trigger:'.writeup-cont',
     start: 'top top',
     end:  "bottom 10px",
     scrub:true,
