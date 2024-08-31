@@ -127,7 +127,7 @@ if(isPortrait){
   ScrollTrigger.create({
     trigger:'.productsContainer',
     start: 'top top',
-    end:  "bottom top",
+    end:  "bottom 10px",
     scrub:true,
     pin:'.products-photo',
     pinReparent:true,
@@ -252,7 +252,7 @@ if(isPortrait){
           >
             <div className="landscape:flex justify-between w-[100%] landscape:space-x-1 ">
 
-<div className="products-photo portrait:mb-[20vw] relative  w-[50%]  portrait:w-full  ">
+<div className="products-photo  relative  w-[50%]  portrait:w-full  ">
 
 <div className="image-cont  w-[100%] pointer-events-none  flex flex-col  ">
 
@@ -275,7 +275,7 @@ className="productImage cursor-pointer  mb-3 portrait:w-full ">
       
 
 
-<div className="writeup-cont  w-[50%] portrait:w-full flex flex-col    space-y-[18vw]">
+<div className="writeup-cont  w-[50%] portrait:mt-[20vw] portrait:w-full flex flex-col    space-y-[18vw]">
 {slice.primary.product_container.map((product:any,index:number) => (
 
           <div
