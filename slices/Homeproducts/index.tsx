@@ -242,7 +242,7 @@ if(isPortrait){
       
 
       <div className="productsContainer landscape:space-y-16 portrait:space-y-20 flex flex-col items-center w-full  ">
-        <div   className=" w-full grid  portrait:grid-cols-1 landscape:grid-cols-1  landscpe:gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   landscape:gap-y-20"> 
+        <div   className=" w-full "> 
         
           <div
           
@@ -250,7 +250,7 @@ if(isPortrait){
             className="productContainer   transition duration-200 ease-in
               w-full flex flex-col items-center text-start "
           >
-            <div className="landscape:flex justify-between w-[100%] landscape:space-x-1 ">
+            <div className="flex landscape:flex-row portrait:flex-col landscape:justify-between w-[100%] landscape:space-x-1 ">
 
 <div className="products-photo  relative  w-[50%]  portrait:w-full  ">
 
@@ -263,7 +263,7 @@ if(isPortrait){
               ref={productrefs.current[index] = React.createRef<HTMLDivElement>()} className="product-image-div absolute opacity-0">
 <div
 ref={imagerefs.current[index] = React.createRef<HTMLDivElement>()}
-className="productImage cursor-pointer  mb-3 portrait:w-full ">
+className="productImage cursor-pointer  portrait:w-full ">
                 <PrismicNextImage  field={product.product_image} className="rounded-md w-[80%]"/>
               </div>
 
