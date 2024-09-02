@@ -126,6 +126,7 @@ if(isPortrait){
 
   ScrollTrigger.create({
     trigger:'.writeup-cont',
+    scroller:'.writeup-cont',
     start: 'top top',
     end:  "bottom 10px",
     scrub:true,
@@ -275,7 +276,7 @@ className="productImage cursor-pointer  portrait:w-full ">
       
 
 
-<div className="writeup-cont  w-[50%] portrait:mt-[20vw] portrait:w-full flex flex-col    space-y-[18vw]">
+<div className="writeup-cont  w-[50%]   portrait:w-full flex flex-col    space-y-[18vw]">
 {slice.primary.product_container.map((product:any,index:number) => (
 
           <div
