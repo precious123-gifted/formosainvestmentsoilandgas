@@ -242,7 +242,7 @@ if(isPortrait){
 
       
 
-      <div className="productsContainer landscape:space-y-16 portrait:space-y-20 flex flex-col items-center w-full  ">
+      <div className="productsContainer landscape:space-y-16 portrait:space-y-8 flex flex-col items-center w-full  ">
         <div   className=" w-full "> 
         
           <div
@@ -310,7 +310,6 @@ ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
 
 ))}
 
-<div className="writeup-cont  "></div>
 </div>
 
     
