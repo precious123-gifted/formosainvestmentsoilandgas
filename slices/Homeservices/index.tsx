@@ -236,7 +236,7 @@ const Homeservices = ({ slice }: HomeservicesProps): JSX.Element => {
   return (
     <Bounded  
    
-   className="services pt-[18vw] portrait:pt-[24vw] pb-[18vw] overflow-hidden  text-[#EDF4F6] bg-[#080e0f]" 
+   className="services  pt-[18vw] portrait:pt-[24vw] pb-[18vw] overflow-hidden  text-[#EDF4F6] bg-[#080e0f]" 
   
     >
 
