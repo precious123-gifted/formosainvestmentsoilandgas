@@ -214,7 +214,7 @@ if(isPortrait){
     // data-slice-variation={slice.variation}
    className=" text-[#c5d4d6]   pb-[10vw] bg-[#151c1d] overflow-hidden" 
     >
-<div className="contentz w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[0vw]"> 
+<div className="contentz w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[40vw]"> 
 
 <div ref={headerref} className="">
 {slice.primary.header?.split('').map((letter,index)=>(
