@@ -109,6 +109,8 @@ setLoaded(true)
 
   useGSAP(() => {
   if(loaded === true){
+
+    if(isLandscape){
     ScrollTrigger.create({
 trigger:'.writeup-cont',
 start: 'top 120px',
@@ -120,26 +122,11 @@ pinType:'fixed',
 
 })
 
-
-
-if(isPortrait){
-
-  ScrollTrigger.create({
-    trigger:'.writeup-cont',
-    scroller:'.writeup-cont',
-    start: 'top top',
-    end:  "bottom 10px",
-    scrub:true,
-    pin:'.products-photo',
-    pinReparent:true,
-    pinSpacing:false,
-    pinType:'fixed',
-    })
+    }
 
 
 
 
-}
 
 
 
