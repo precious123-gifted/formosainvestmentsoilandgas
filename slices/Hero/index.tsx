@@ -36,8 +36,8 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 const Hero = ({ slice }: HeroProps): JSX.Element => {
 
-  const button = useRef(null)
   const header = useRef(null)
+  const button = useRef<HTMLButtonElement | null>(null);
   const header2 = useRef(null)
 
   
@@ -93,46 +93,42 @@ useGSAP(() => {
       gsap.set('.button', { opacity: 1 });
 
       timeline
-        .to('.header1', { opacity: 0, duration: 2, ease: "power3.out" }) 
-        .to('.button', { opacity: 0, duration: 2, ease: "power3.out" })
+        .to('.header1', { opacity: 0, duration: 2, ease: "power3.out" })
+        .to('.button', { opacity: 0, duration: 2, ease: "power3.out", onComplete: disableButtonClick,  onReverseComplete: disableButtonClick}) // Call for disabling on opacity out
         .to('.header2', { opacity: 1, duration: 4, ease: "power3.in" })
         .to(['.image','.header2'], { opacity: 0, duration: 9, ease: "power3.in" })
-        
-        if(isLandscape){
-           
-                const scrollTrigger =ScrollTrigger.create({
-                    trigger: '.hero',
-                    start: 'top top',
-                    end: 'bottom bottom',
-                    scrub: true,
-                    snap:0,
-                    pin: true,
-                    pinReparent:false,
-                    pinType: 'fixed',
-                    animation: timeline,
-                  });
-              
-        
-        }
-        if(isPortrait){
-           
-                const scrollTrigger =ScrollTrigger.create({
-                    trigger: '.hero',
-                    start: 'top 1px',
-                    end: 'bottom bottom',
-                    scrub: true,
-                    snap:0,
-                    pin: true,
-                    pinReparent:false,
-                    pinType: 'fixed',
-                    animation: timeline,
-                  });
-              
-        
-        }
-   
+       
+      if (isLandscape) {
+        const scrollTrigger = ScrollTrigger.create({
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          snap: 0,
+          pin: true,
+          pinReparent: false,
+          pinType: 'fixed',
+          animation: timeline,
+        });
+      }
 
-        
+      if (isPortrait) {
+        const scrollTrigger = ScrollTrigger.create({
+          trigger: '.hero',
+          start: 'top 1px',
+          end: 'bottom bottom',
+          scrub: true,
+          snap: 0,
+          pin: true,
+          pinReparent: false,
+          pinType: 'fixed',
+          animation: timeline,
+        });
+      }
+
+      function disableButtonClick() {
+        button.current!.style.pointerEvents = button.current!.style.opacity === '0'? 'none' : 'auto'; // Disable click events on opacity out
+      }
     });
   }
 }, [loaded]);
@@ -267,10 +263,10 @@ const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
 </div>
 
 
-  <div className="btn-div  h-[20vw]  w-full flex justify-center items-center"> 
- <Link href={"/products"}> <div ref={button} className="button opacity-0 landscape:bg-[#080e0f] landscape:text-[#e8f3f0] portrait:text-[#080e0f] portrait:bg-[#e8f3f0]  cursor-pointer px-8 py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#d1f1f3] hover:text-[#080e0f] duration-[0.2s]  ease-in-out ">Check Our Products</div> </Link> 
+  <button ref={button} className="button opacity-0 btn-div  h-[20vw]  w-full flex justify-center items-center"> 
+ <Link href={"/products"}> <div className=" landscape:bg-[#080e0f] landscape:text-[#e8f3f0] portrait:text-[#080e0f] portrait:bg-[#e8f3f0]  cursor-pointer px-8 py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#d1f1f3] hover:text-[#080e0f] duration-[0.2s]  ease-in-out ">Check Our Products</div> </Link> 
   
-   </div>
+   </button>
 
 
 </div>
