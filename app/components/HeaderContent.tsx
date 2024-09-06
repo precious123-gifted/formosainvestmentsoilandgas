@@ -109,7 +109,7 @@ serviceListAnimation()
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("/api/oilprice",{ next: { revalidate: 1 } });
+      const response = await fetch("/api/oilprice", { cache : 'no-store' } );
       const data: OilProduct[] = await response.json();
       setOilData(data);
     };

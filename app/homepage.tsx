@@ -8,7 +8,8 @@ export default function Homepage({Children}:any) {
 
   useEffect(() => {
     const handleRefresh = () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.location.reload()
+      
     };
 
     window.addEventListener('load', handleRefresh);
