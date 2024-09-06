@@ -143,12 +143,6 @@ const whyusAnimation = () => {
       whyusTimeline
       .to('.whyus', { opacity: 0.1,  ease: "power3.in" }) 
       .to('.whyus', { opacity: 0.1,  ease: "power3.in" }) 
-      .to('.whyus', { opacity: 0.1,  ease: "power3.in" }) 
-      .to('.whyus', { opacity: 0.1,  ease: "power3.in" }) 
-      .to('.whyus', { opacity: 0.1,  ease: "power3.in" }) 
-      .to('.whyus', { opacity: 0.2,  ease: "power3.in" }) 
-      .to('.whyus', { opacity: 0.3,  ease: "power3.in" }) 
-      .to('.whyus', { opacity: 0.6,  ease: "power3.in" }) 
       .to('.whyus', { opacity: 1,  ease: "power3.in" }); 
  
 
