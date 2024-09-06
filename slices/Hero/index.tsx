@@ -141,8 +141,6 @@ const whyusAnimation = () => {
       const whyusTimeline = gsap.timeline({ yoyo: true });
     
       whyusTimeline
-      .to('.whyus', { opacity: 0.1,  ease: "power3.in" }) 
-      .to('.whyus', { opacity: 0.1,  ease: "power3.in" }) 
       .to('.whyus', { opacity: 1,  ease: "power3.in" }); 
  
 
