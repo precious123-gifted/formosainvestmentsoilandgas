@@ -112,7 +112,7 @@ setLoaded(true)
     ScrollTrigger.create({
 trigger:'.writeup-cont',
 start: 'top 120px',
-end:  "bottom bottom",
+end:  "bottom 400px",
 pin:'.image-cont',
 pinReparent:true,
 pinSpacing:false,
@@ -212,7 +212,7 @@ if(isPortrait){
     <Bounded
     // data-slice-type={slice.slice_type}
     // data-slice-variation={slice.variation}
-   className=" text-[#c5d4d6]   landscape:pb-[10vw] bg-[#151c1d] overflow-hidden" 
+   className=" text-[#c5d4d6]   landscape:pb-[12vw] bg-[#151c1d] overflow-hidden" 
     >
 <div className="contentz w-full flex flex-col items-center pt-[10vw]  pb-[6vw] space-y-[8vw] portrait:space-y-[40vw]"> 
 
