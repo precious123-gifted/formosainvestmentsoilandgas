@@ -6,18 +6,18 @@ import SmoothScroller from '../smoothscroll'
 
 export default function Homepage({Children}:any) {
 
-  useEffect(() => {
-    const handleRefresh = () => {
-      window.location.reload()
+  // useEffect(() => {
+  //   const handleRefresh = () => {
+  //     window.location.reload()
       
-    };
+  //   };
 
-    window.addEventListener('load', handleRefresh);
+  //   window.addEventListener('load', handleRefresh);
 
-    return () => {
-      window.removeEventListener('load', handleRefresh);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('load', handleRefresh);
+  //   };
+  // }, []);
 
  
 
