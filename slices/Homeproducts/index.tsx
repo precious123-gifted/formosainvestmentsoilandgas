@@ -242,7 +242,7 @@ pinType:'fixed',
 
 <div className="products-photo  relative  w-[50%]  portrait:w-full  ">
 
-<div className="image-cont  w-[100%] pointer-events-none  flex flex-col  ">
+<div className="image-cont portrait:hidden  w-[100%] pointer-events-none  flex flex-col  ">
 
       {slice.primary.product_container.map((product:any,index:number) => (
               <div
