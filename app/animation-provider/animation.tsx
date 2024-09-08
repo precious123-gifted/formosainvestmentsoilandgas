@@ -24,7 +24,7 @@ const displayElementWhenPageLoads = (
 
   if (Div) {
     setTimeout(() => {
-      gsap.to(Div, Sec, { opacity: 1, ease: 'Power2.out' });
+      gsap.to(Div, Sec, { opacity: 1,margin:0, ease: 'Power2.out' });
     }, timeout);
   }
 };

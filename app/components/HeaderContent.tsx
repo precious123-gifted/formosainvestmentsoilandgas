@@ -31,12 +31,13 @@ export default function HeaderContent({settings}: any) {
   const carticon = useRef(null)
   const desktopcarticon = useRef(null)
   const itemquantitydiv = useRef(null)
+  const oilPriceContainer = useRef(null)
 
 
   const pathname = usePathname();
 
-  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
 
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const serviceDropdownItems = [
     { label: "Sales", link: "/sales" },
     { label: "Supply", link: "/supply" },
@@ -48,8 +49,9 @@ export default function HeaderContent({settings}: any) {
 
   const loadingAnimation = useEffect(()=>{
     if(loaded === true)
-    displayElementWhenPageLoads(logo,0.5,150)
-    displayElementWhenPageLoads(desktoplinks,0.5,300)
+      displayElementWhenPageLoads(desktoplinks,0.5,150)
+    displayElementWhenPageLoads(oilPriceContainer,0.5,150)
+      displayElementWhenPageLoads(logo,0.5,300)
     displayElementWhenPageLoads(carticon,0.5,500)
     displayElementWhenPageLoads(desktopcarticon,0.5,400)
     displayElementWhenPageLoads(itemquantitydiv,0.5,420)
@@ -75,8 +77,10 @@ export default function HeaderContent({settings}: any) {
 
 
 const serviceList = useRef(null)
+const serviceDropDown = useRef<HTMLDivElement | null>(null)
 const serviceListAnimation = () =>{
-  gsap.to(serviceList.current,{left:showServicesDropdown?"0vw":"-100vw",})
+  gsap.to(serviceList.current,{left:showServicesDropdown?"0vw":"-100vw",pointerEvents:showServicesDropdown?"auto":"none"})
+  gsap.to(serviceDropDown.current,{left:showServicesDropdown?"0vw":"-100vw",pointerEvents:showServicesDropdown?"auto":"none"})
 }
 
 useEffect(()=>{
@@ -158,7 +162,7 @@ serviceListAnimation()
           </Link>
         </div>
 
-        <div className="oilprice_container portrait:hidden text-[#dfece3] flex text-[1vw] portrait:text-[1.2vw] space-x-10 portrait:space-x-4">
+        <div ref={oilPriceContainer} className="oilprice_container portrait:hidden  mt-[-20vw] text-[#dfece3] flex text-[1vw] portrait:text-[1.2vw] space-x-10 portrait:space-x-4">
           {filteredProducts.slice(0, 4).map((product, index) => (
             <div key={index} className="product flex flex-col">
               <div className="title text-[#d4bf55]">{product.title}</div>
@@ -186,7 +190,7 @@ serviceListAnimation()
           </div> 
         </div>
 
-        <div ref={desktoplinks} className="links opacity-0 px-1 portrait:hidden w-auto space-x-[4vw] flex items-center bg-[#FBFFFE] rounded">
+        <div ref={desktoplinks} className="links opacity-0 mt-[-20vw] px-1 portrait:hidden w-auto space-x-[4vw] flex items-center bg-[#FBFFFE] rounded">
           <ul className="flex justify-between items-center w-[80%] text-[1.5vw] space-x-[6vw]">
             <div 
               className="relative"
@@ -196,8 +200,7 @@ serviceListAnimation()
                 <div ref={serviceTXT} className="services-text px-3 py-2 rounded hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323]  shadow-lg">
                   Services
                 </div>
-              {showServicesDropdown && (
-               <div className="pt-2 absolute  left-0  w-48">
+               <div ref={serviceDropDown} className="pt-2 absolute  left-[-100vw]  w-48">
  <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6] bg-white ring-1 ring-black ring-opacity-5">
                   <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     {serviceDropdownItems.map((item, index) => (
@@ -214,7 +217,6 @@ serviceListAnimation()
                 </div>
 
                </div>
-              )}
             </div>
 
             {Object.values(navigation).map(({link,label,key}:forString) => {
@@ -239,7 +241,7 @@ serviceListAnimation()
         </div>
       </div>
 
-      <div className="oilprice_container opacity-1 landscape:hidden text-[#dfece3] py-2 flex text-[2.8vw] justify-between">
+      <div ref={oilPriceContainer} className="oilprice_container opacity-1 landscape:hidden ml-[-100vw] text-[#dfece3] py-2 flex text-[2.8vw] justify-between">
         {filteredProducts.slice(0, 4).map((product, index) => (
           <div key={index} className="product flex flex-col">
             <div className="title text-[#d4bf55]">{product.title}</div>

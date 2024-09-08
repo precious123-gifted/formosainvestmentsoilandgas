@@ -121,7 +121,7 @@ const Enquiry = ({ slice }: EnquiryProps): JSX.Element => {
               />
             </div>
 
-            <button type="submit" className="btn mt-10 portrait:w-full bg-[#423B17] text-[#EDF4F6] cursor-pointer portrait:px-[22vw] px-[6vw] py-3 rounded-[0.280rem] text-[1.8vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.2s] ease-in-out">
+            <button type="submit" className="btn mt-10 portrait:w-full bg-[#423B17] text-[#EDF4F6] cursor-pointer portrait:px-[22vw] px-[6vw] py-3 rounded-[0.280rem] text-[1.8vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.8s] ease-in-out">
               Submit
             </button>
           </form>

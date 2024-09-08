@@ -321,7 +321,7 @@ ref={headerrefs.current[index] = React.createRef<HTMLDivElement>()}
 </InView>
 
 <InView as="div" onChange={(inView, entry) => opacityAnimation(button,0.4,inView)}>
-<PrismicNextLink  field={slice.primary.all_products_button}> <div ref={button} className="button opacity-0 bg-[#a99c60] text-[#1d3840] cursor-pointer portrait:px-[22vw] px-[8vw] py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.2s]  ease-in-out "> All Products</div> </PrismicNextLink> 
+<PrismicNextLink  field={slice.primary.all_products_button}> <div ref={button} className="button opacity-0 bg-[#a99c60] text-[#1d3840] cursor-pointer portrait:px-[22vw] px-[8vw] py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#252d2e] duration-[0.8s]  ease-in-out "> All Products</div> </PrismicNextLink> 
 
 </InView>
 

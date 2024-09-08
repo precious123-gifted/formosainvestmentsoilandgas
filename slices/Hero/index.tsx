@@ -39,6 +39,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   const header = useRef(null)
   const button = useRef<HTMLButtonElement | null>(null);
   const header2 = useRef(null)
+  const backgroundImageRef = useRef(null)
 
   
   
@@ -58,8 +59,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   
     const loadingAnimation = useEffect(()=>{
   
-      displayElementWhenPageLoads(button,0.5,450)
-      displayElementWhenPageLoads(header,0.5,760)
+      displayElementWhenPageLoads(button,0.5,750)
+      displayElementWhenPageLoads(header,0.5,460)
+      displayElementWhenPageLoads(backgroundImageRef,0.5,460)
     },[])
 
 
@@ -238,7 +240,7 @@ const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
    
 
   <div ref={headerRef} className=" w-full  flex pt-8  portrait:flex-col  h-[40vw] portrait:h-[100vh]  object-fit">
-  <div className="bg-cover bg-no-repeat  overflow-hidden">
+  <div ref={backgroundImageRef} className="bg-cover opacity-0 bg-no-repeat  overflow-hidden">
   <Image ref={imageRef}
     src={backgroundImage}
     alt="Background"
@@ -256,7 +258,7 @@ const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
 
 
   <button ref={button} className="button opacity-0 btn-div  h-[20vw]  w-full flex justify-center items-center"> 
- <Link href={"/products"}> <div className=" landscape:bg-[#080e0f] landscape:text-[#e8f3f0] portrait:text-[#080e0f] portrait:bg-[#e8f3f0]  cursor-pointer px-8 py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#d1f1f3] hover:text-[#080e0f] duration-[0.2s]  ease-in-out ">Check Our Products</div> </Link> 
+ <Link href={"/products"}> <div className=" landscape:bg-[#080e0f] landscape:text-[#e8f3f0] portrait:text-[#080e0f] portrait:bg-[#e8f3f0]  cursor-pointer px-8 py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#d1f1f3] hover:text-[#080e0f] duration-[0.8s]  ease-in-out ">Check Our Products</div> </Link> 
   
    </button>
 
