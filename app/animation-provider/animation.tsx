@@ -17,14 +17,15 @@ interface AnimationOptions {
 const displayElementWhenPageLoads = (
   div: RefObject<HTMLDivElement | HTMLButtonElement | HTMLImageElement| HTMLSpanElement >,
   seconds: number,
-  timeout: number
+  timeout: number,
+  margin?:boolean,
 ) => {
   let Div = div.current;
   let Sec = seconds;
 
   if (Div) {
     setTimeout(() => {
-      gsap.to(Div, Sec, { opacity: 1,margin:0, ease: 'Power2.out' });
+      gsap.to(Div, Sec, { opacity: 1, margin: 0 , ease: 'Power2.out' });
     }, timeout);
   }
 };

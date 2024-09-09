@@ -59,8 +59,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   
     const loadingAnimation = useEffect(()=>{
   
-      displayElementWhenPageLoads(button,0.5,750)
-      displayElementWhenPageLoads(header,0.5,460)
+      if(isLandscape)  displayElementWhenPageLoads(button,0.5,750)
+    displayElementWhenPageLoads(header,0.5,460)
       displayElementWhenPageLoads(backgroundImageRef,0.5,460)
     },[])
 

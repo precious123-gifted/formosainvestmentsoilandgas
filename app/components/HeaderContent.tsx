@@ -32,6 +32,7 @@ export default function HeaderContent({settings}: any) {
   const desktopcarticon = useRef(null)
   const itemquantitydiv = useRef(null)
   const oilPriceContainer = useRef(null)
+  const oilPriceContainerPortrait = useRef(null)
 
 
   const pathname = usePathname();
@@ -47,15 +48,39 @@ export default function HeaderContent({settings}: any) {
     { label: "Petroleum & Gas Storage", link: "/storage" },
   ];
 
+
+
+
+  function matchMediaOrientation(orientation:string) {
+    if (typeof window !== 'undefined') {
+      const mediaQuery = window.matchMedia(orientation);
+      return mediaQuery.matches;
+    }
+  }
+
+  const isPortrait = matchMediaOrientation('(orientation: portrait)');
+  const isLandscape = matchMediaOrientation('(orientation: landscape)');
+
+
   const loadingAnimation = useEffect(()=>{
-    if(loaded === true)
-      displayElementWhenPageLoads(desktoplinks,0.5,150)
-    displayElementWhenPageLoads(oilPriceContainer,0.5,150)
-      displayElementWhenPageLoads(logo,0.5,300)
-    displayElementWhenPageLoads(carticon,0.5,500)
-    displayElementWhenPageLoads(desktopcarticon,0.5,400)
-    displayElementWhenPageLoads(itemquantitydiv,0.5,420)
-    displayElementWhenPageLoads(menuicon,0.5,650)
+
+setTimeout(() => {
+  
+   if(loaded === true)
+    displayElementWhenPageLoads(logo,0.5,110) 
+  displayElementWhenPageLoads(oilPriceContainer,0.5,130)
+          displayElementWhenPageLoads(desktoplinks,0.5,150)
+     displayElementWhenPageLoads(menuicon,0.5,650)  
+      
+      if(isPortrait){
+    displayElementWhenPageLoads(oilPriceContainerPortrait,0.5,150)
+   
+      }
+
+},4000);
+
+ 
+  
   })
 
   const{menu,setMenu} = useStateContext()
@@ -241,7 +266,7 @@ serviceListAnimation()
         </div>
       </div>
 
-      <div ref={oilPriceContainer} className="oilprice_container opacity-1 landscape:hidden ml-[-100vw] text-[#dfece3] py-2 flex text-[2.8vw] justify-between">
+      <div ref={oilPriceContainerPortrait} className="oilprice_container opacity-1 landscape:hidden ml-[-100vw] text-[#dfece3] py-2 flex text-[2.8vw] justify-between">
         {filteredProducts.slice(0, 4).map((product, index) => (
           <div key={index} className="product flex flex-col">
             <div className="title text-[#d4bf55]">{product.title}</div>
