@@ -129,7 +129,7 @@ displayElementWhenPageLoads(oilPriceContainer,0.5,130)
 const serviceList = useRef(null)
 const serviceDropDown = useRef<HTMLDivElement | null>(null)
 const serviceListAnimation = () =>{
-  gsap.to(serviceList.current,{left:showServicesDropdown?"0vw":"-100vw",pointerEvents:showServicesDropdown?"auto":"none"})
+  gsap.to(serviceList.current,{left:showServicesDropdown?"0vw":"-150vw",pointerEvents:showServicesDropdown?"auto":"none"})
   gsap.to(serviceDropDown.current,{left:showServicesDropdown?"0vw":"-100vw",pointerEvents:showServicesDropdown?"auto":"none"})
 }
 
@@ -299,7 +299,7 @@ serviceListAnimation()
       
 
 
-<div ref={menudiv} className="menu opacity-0 landscape:hidden portrait:space-x-6 w-full left-0 h-[24vw] bg-[#080e0f] text-[#e9e2e0]   absolute z-50 top-[-0vw] flex justify-center items-center ">
+<div ref={menudiv} className="menu opacity-0 landscape:hidden portrait:space-x-6 w-full left-0 h-[24vw] bg-[#080e0f] text-[#e9e2e0]  absolute z-50 top-[-0vw] flex justify-center items-center ">
 
 
 <div
@@ -307,8 +307,8 @@ onClick={() => setShowServicesDropdown(!showServicesDropdown)}
 ref={serviceTXT} className="services-text px-3 py-2   rounded bg-[#FBFFFE] hover:bg-[#e0f3e6] cursor-pointer transition duration-300 ease-in-out text-[#0D2323]  shadow-lg">
     Services
   </div>
-  {showServicesDropdown && (
-              <div ref={serviceList} className="mt-[90vw]  absolute z-50 left-[100vw]  w-full">
+  
+              <div ref={serviceList} className="mt-[90vw]  ml-[-100vw]  absolute z-50 left-[100vw]  w-full">
               <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6]  bg-[#FBFFFE] ring-1 ring-black ring-opacity-5">
                                <div className="py-1 space-y-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                  {serviceDropdownItems.map((item, index) => (
@@ -325,7 +325,7 @@ ref={serviceTXT} className="services-text px-3 py-2   rounded bg-[#FBFFFE] hover
                              </div>
              
                             </div>
-          )}
+          
 
 {Object.values(navigation).map(({link,label,key}:forString)=>
 {
