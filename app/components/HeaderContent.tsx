@@ -50,12 +50,14 @@ export default function HeaderContent({settings}: any) {
       // Set oilDataState and store it in localStorage
       setOilDataState(data ? 201 : 500);
       localStorage.setItem('oilDataState', JSON.stringify(data ? 201 : 500));
+
     };
   
     fetchData();
   
     const intervalId = setInterval(fetchData, 20 * 60 * 1000);
-    return () => clearInterval(intervalId);
+      
+      // return () => localStorage.removeItem('oilDataState'); ;
   }, []);
   
  
@@ -100,7 +102,7 @@ displayElementWhenPageLoads(oilPriceContainer,0.5,130)
   displayElementWhenPageLoads(oilPriceContainerPortrait,0.5,150)
  
 }
-},4000);
+},5100);
  }
 
 

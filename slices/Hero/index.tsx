@@ -60,7 +60,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   
     const loadingAnimation = useEffect(()=>{
   
+setTimeout(() => {
+
+
   const oilDataState = localStorage.getItem('oilDataState');
+  console.log(oilDataState)  
 
   if (oilDataState && JSON.parse(oilDataState) === 201) {
       setTimeout(() => {
@@ -71,10 +75,14 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           displayElementWhenPageLoads(backgroundImageRef,0.5,460)
 
 console.log(oilDataState)  
+localStorage.removeItem('oilDataState');
       }, 4800);
 
 
     }
+  
+}, 1000);
+
 
 
     },[])
