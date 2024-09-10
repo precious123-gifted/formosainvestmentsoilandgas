@@ -35,7 +35,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 
 
-const Hero = ({ slice }: HeroProps): JSX.Element => {
+const Hero =  ({ slice, oilDataState }: { slice: Content.HeroSlice, oilDataState: number }): JSX.Element => {
 
   const header = useRef(null)
   const button = useRef<HTMLButtonElement | null>(null);
@@ -43,7 +43,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   const backgroundImageRef = useRef(null)
 
   
-  
+  useEffect(() => {
+    console.log(`Oil Data State in Hero component: ${oilDataState}`);
+  }, [oilDataState]);
 
 
 
@@ -57,16 +59,16 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
   const isPortrait = matchMediaOrientation('(orientation: portrait)');
   const isLandscape = matchMediaOrientation('(orientation: landscape)');
+  // const {oilDataState, setOilDataState} = useStateContext();
   
     const loadingAnimation = useEffect(()=>{
   
 setTimeout(() => {
 
 
-  const oilDataState = localStorage.getItem('oilDataState');
-  console.log(oilDataState)  
+  // const oilDataState = localStorage.getItem('oilDataState');
+  console.log(`this is the oil data from hero slice : `+oilDataState)  
 
-  if (oilDataState && JSON.parse(oilDataState) === 201) {
       setTimeout(() => {
             
       if(isLandscape)  displayElementWhenPageLoads(button,0.5,750)
@@ -79,7 +81,6 @@ localStorage.removeItem('oilDataState');
       }, 4800);
 
 
-    }
   
 }, 1000);
 

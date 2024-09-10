@@ -14,6 +14,10 @@ import MenuSvg from "@/app/components/menuSvg"
 import displayElementWhenPageLoads from "../animation-provider/animation";
 import { usePathname } from 'next/navigation'
 import { cn } from "@/lib/utils";
+import TransitionLink from "./TransitionLink";
+
+
+
 
 export default function HeaderContent({settings}: any) {
   interface forString{
@@ -194,10 +198,10 @@ serviceListAnimation()
   return (
     <div  className="parent z-50  w-[98%] portrait:w-[96%]  portrait:flex-col portrait:flex mb-4 pt-2">
       <div className="content w-full flex flex-row justify-between items-center pt-2">
-        <div ref={logo} className="logo opacity-0 cursor-pointer object-contain w-[15vw] portrait:w-[32vw] pb-1">
-          <Link onClick={menuBackAnimation} href={"/"}>
+        <div ref={logo}  onClick={menuBackAnimation} className="logo opacity-0 cursor-pointer object-contain w-[15vw] portrait:w-[32vw] pb-1">
+          <TransitionLink href={"/"}>
             <PrismicNextImage field={settings.data.logo} className="rounded-md" />
-          </Link>
+          </TransitionLink>
         </div>
 
         <div ref={oilPriceContainer} className="oilprice_container portrait:hidden  mt-[-20vw] text-[#dfece3] flex text-[1vw] portrait:text-[1.2vw] space-x-10 portrait:space-x-4">
@@ -242,14 +246,15 @@ serviceListAnimation()
  <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6] bg-white ring-1 ring-black ring-opacity-5">
                   <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     {serviceDropdownItems.map((item, index) => (
-                      <Link 
-                        key={index} 
-                        href={item.link}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
-                        role="menuitem"
+
+                      <div key={index} 
+                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
+                       role="menuitem"
                       >
+<TransitionLink href={item.link}>
                         {item.label}
-                      </Link>
+</TransitionLink>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -262,17 +267,15 @@ serviceListAnimation()
               const isActiveChild = key !== '/' && pathname.includes(`${key}`)
               const logic = !isActiveChild ? isActive : isActiveChild
               return(
-                <div key={key}>
-                  <Link href={link}
-                    className={cn(
+                <div key={key}   className={cn(
                       'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] transition duration-300 ease-in-out text-[#0D2323] ',
-                      logic && 'bg-[#080e0f] text-[#e8f7ed] hover:text-[#e0f3e6] shadow-lg',
+                      logic && 'bg-[#080e0f] text-[#c3cfc7] hover:text-[#e0f3e6] shadow-lg',
                       
-                    )}
+                    )}> <TransitionLink href={link}
+                    
                   >
                     {label}
-                  </Link>
-                </div>
+                  </TransitionLink></div>
               )
             })}
           </ul>
@@ -315,14 +318,16 @@ ref={serviceTXT} className="services-text px-3 py-2   rounded bg-[#FBFFFE] hover
               <div className=" rounded-md shadow-lg hover:bg-[#e0f3e6]  bg-[#FBFFFE] ring-1 ring-black ring-opacity-5">
                                <div className="py-1 space-y-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                  {serviceDropdownItems.map((item, index) => (
-                                   <Link onClick={menuBackAnimation} 
-                                     key={index} 
+                                  <div  key={index}  onClick={menuBackAnimation}  className="block px-4 py-2  text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
+                                     role="menuitem" >
+                                   <TransitionLink
+                                   
                                      href={item.link}
-                                     className="block px-4 py-2  text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
-                                     role="menuitem"
+                                    
                                    >
                                      {item.label}
-                                   </Link>
+                                   </TransitionLink>
+                                   </div>
                                  ))}
                                </div>
                              </div>
@@ -338,16 +343,16 @@ const logic = !isActiveChild? isActive : isActiveChild
 const lastLink = '/about'
   return(
       
-<div  key={key}
- >
-<Link href={link}
-onClick={menuBackAnimation}
-
+<div  key={key} 
  className={cn(
   'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] bg-[#FBFFFE] transition duration-300 ease-in-out text-[#0D2323] ',
    logic && 'bg-[#162226] text-[#e8f7ed] hover:text-[#e0f3e6]  shadow-lg ' 
 )}
- >{label}</Link>
+ >
+<TransitionLink href={link}
+
+
+ >{label}</TransitionLink>
 
 </div>
 
@@ -358,3 +363,5 @@ onClick={menuBackAnimation}
     </div>
   )
 }
+
+

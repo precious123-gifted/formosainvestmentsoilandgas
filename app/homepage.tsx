@@ -2,23 +2,13 @@
 
 import React, { useEffect, useState } from 'react'
 import SmoothScroller from '../smoothscroll'
+import { useStateContext } from './StateManager';
 
 
 export default function Homepage({Children}:any) {
 
-  // useEffect(() => {
-  //   const handleRefresh = () => {
-  //     window.location.reload()
-      
-  //   };
 
-  //   window.addEventListener('load', handleRefresh);
-
-  //   return () => {
-  //     window.removeEventListener('load', handleRefresh);
-  //   };
-  // }, []);
-
+  const { oilDataState } = useStateContext();
  
 
 
@@ -26,14 +16,14 @@ export default function Homepage({Children}:any) {
 
     <>
    
-       <SmoothScroller> 
+{   oilDataState === 201 &&     <SmoothScroller> 
         
     {Children}
        
     </SmoothScroller>
      
            
-
+}
     
     </>
     
