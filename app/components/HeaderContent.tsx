@@ -38,6 +38,29 @@ export default function HeaderContent({settings}: any) {
   const pathname = usePathname();
 
 
+  const [oilData, setOilData] = useState<OilProduct[]>([]);
+  const {oilDataState, setOilDataState} = useStateContext();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/api/oilprice", { cache: 'no-store' });
+      const data: OilProduct[] = await response.json();
+      setOilData(data);
+  
+      // Set oilDataState and store it in localStorage
+      setOilDataState(data ? 201 : 500);
+      localStorage.setItem('oilDataState', JSON.stringify(data ? 201 : 500));
+    };
+  
+    fetchData();
+  
+    const intervalId = setInterval(fetchData, 20 * 60 * 1000);
+    return () => clearInterval(intervalId);
+  }, []);
+  
+ 
+
+
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const serviceDropdownItems = [
     { label: "Sales", link: "/sales" },
@@ -64,20 +87,22 @@ export default function HeaderContent({settings}: any) {
 
   const loadingAnimation = useEffect(()=>{
 
-setTimeout(() => {
-  
-   if(loaded === true)
-    displayElementWhenPageLoads(logo,0.5,110) 
-  displayElementWhenPageLoads(oilPriceContainer,0.5,130)
-          displayElementWhenPageLoads(desktoplinks,0.5,150)
-     displayElementWhenPageLoads(menuicon,0.5,650)  
-      
-      if(isPortrait){
-    displayElementWhenPageLoads(oilPriceContainerPortrait,0.5,150)
-   
-      }
-
+    
+    
+    if(oilDataState === 201){
+       setTimeout(() => {
+  displayElementWhenPageLoads(logo,0.5,110) 
+displayElementWhenPageLoads(oilPriceContainer,0.5,130)
+        displayElementWhenPageLoads(desktoplinks,0.5,150)
+   displayElementWhenPageLoads(menuicon,0.5,650)  
+    
+    if(isPortrait){
+  displayElementWhenPageLoads(oilPriceContainerPortrait,0.5,150)
+ 
+}
 },4000);
+ }
+
 
  
   
@@ -134,21 +159,6 @@ serviceListAnimation()
     date: string;
   }
 
-  const [oilData, setOilData] = useState<OilProduct[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("/api/oilprice", { cache : 'no-store' } );
-      const data: OilProduct[] = await response.json();
-      setOilData(data);
-    };
-
-    fetchData();
-
-    const intervalId = setInterval(fetchData, 20 * 60 * 1000);
-    return () => clearInterval(intervalId);
-  }, []);
-
 
  
 
@@ -179,7 +189,7 @@ serviceListAnimation()
 
 
   return (
-    <div  className="parent z-50  w-[98%] portrait:w-[96%] portrait:flex-col portrait:flex mb-4 pt-2">
+    <div  className="parent z-50  w-[98%] portrait:w-[96%]  portrait:flex-col portrait:flex mb-4 pt-2">
       <div className="content w-full flex flex-row justify-between items-center pt-2">
         <div ref={logo} className="logo opacity-0 cursor-pointer object-contain w-[15vw] portrait:w-[32vw] pb-1">
           <Link onClick={menuBackAnimation} href={"/"}>
@@ -266,7 +276,7 @@ serviceListAnimation()
         </div>
       </div>
 
-      <div ref={oilPriceContainerPortrait} className="oilprice_container opacity-1 landscape:hidden ml-[-100vw] text-[#dfece3] py-2 flex text-[2.8vw] justify-between">
+      <div ref={oilPriceContainerPortrait} className="oilprice_container opacity-0 landscape:hidden ml-[-100vw] text-[#dfece3] py-2 flex text-[2.8vw] justify-between">
         {filteredProducts.slice(0, 4).map((product, index) => (
           <div key={index} className="product flex flex-col">
             <div className="title text-[#d4bf55]">{product.title}</div>

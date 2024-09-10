@@ -13,6 +13,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { InView } from "react-intersection-observer";
 import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
+import { useStateContext } from "@/app/StateManager";
 gsap.registerPlugin(ScrollTrigger)
 
 
@@ -53,18 +54,31 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     }
   }
   
-  
+
   const isPortrait = matchMediaOrientation('(orientation: portrait)');
   const isLandscape = matchMediaOrientation('(orientation: landscape)');
   
     const loadingAnimation = useEffect(()=>{
   
+  const oilDataState = localStorage.getItem('oilDataState');
+
+  if (oilDataState && JSON.parse(oilDataState) === 201) {
+      setTimeout(() => {
+            
       if(isLandscape)  displayElementWhenPageLoads(button,0.5,750)
-    displayElementWhenPageLoads(header,0.5,460)
-      displayElementWhenPageLoads(backgroundImageRef,0.5,460)
+        displayElementWhenPageLoads(header,0.5,460)
+        displayElementWhenPageLoads(headerRef,0.5,460)
+          displayElementWhenPageLoads(backgroundImageRef,0.5,460)
+
+console.log(oilDataState)  
+      }, 4800);
+
+
+    }
+
+
     },[])
-
-
+ 
 
     const headerRef = useRef(null)
     const imageRef = useRef(null)
@@ -239,7 +253,7 @@ const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
 
    
 
-  <div ref={headerRef} className=" w-full  flex pt-8  portrait:flex-col  h-[40vw] portrait:h-[100vh]  object-fit">
+  <div ref={headerRef} className=" w-full opacity-0  flex pt-8  portrait:flex-col  h-[40vw] portrait:h-[100vh]  object-fit">
   <div ref={backgroundImageRef} className="bg-cover opacity-0 bg-no-repeat  overflow-hidden">
   <Image ref={imageRef}
     src={backgroundImage}

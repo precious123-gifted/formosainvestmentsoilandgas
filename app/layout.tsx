@@ -42,7 +42,7 @@ export default function RootLayout({
    
         
         
-      <Homepage Children={children}/>
+      <Homepage Children={children} />
            
         
          
