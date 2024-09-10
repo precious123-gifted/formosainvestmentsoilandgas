@@ -117,6 +117,7 @@ displayElementWhenPageLoads(oilPriceContainer,0.5,130)
   const menuBackAnimation = () =>{
     if(menu == false) setMenu(!menu)
     if(showServicesDropdown)setShowServicesDropdown(false)
+      
 
   }
 
@@ -129,7 +130,7 @@ displayElementWhenPageLoads(oilPriceContainer,0.5,130)
 const serviceList = useRef(null)
 const serviceDropDown = useRef<HTMLDivElement | null>(null)
 const serviceListAnimation = () =>{
-  gsap.to(serviceList.current,{left:showServicesDropdown?"0vw":"-150vw",pointerEvents:showServicesDropdown?"auto":"none"})
+  gsap.to(serviceList.current,{left:showServicesDropdown && !menu?"0vw":"-150vw",pointerEvents:showServicesDropdown && !menu?"auto":"none"})
   gsap.to(serviceDropDown.current,{left:showServicesDropdown?"0vw":"-100vw",pointerEvents:showServicesDropdown?"auto":"none"})
 }
 
