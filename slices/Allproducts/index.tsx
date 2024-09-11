@@ -5,7 +5,9 @@ import { Client, Content } from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
-import React, { MutableRefObject, useRef } from "react";
+import React, { MutableRefObject, RefObject, useRef } from "react";
+import { InView } from 'react-intersection-observer';
+import gsap from "gsap";
 
 /**
  * Props for `Allproducts`.
@@ -23,6 +25,17 @@ const Allproducts = ({ slice }: AllproductsProps): JSX.Element => {
   const headerref = useRef(null)
 
 
+  const opacityAnimation = (ref: RefObject<HTMLDivElement>, time: number,inView:boolean) => {
+  
+    gsap.to(ref.current, time, {
+      opacity: inView? '100%':'0',
+      scrub: 1,
+      ease: "expo.in",
+    });
+  
+ 
+  };
+
 
 
 
@@ -34,6 +47,8 @@ const Allproducts = ({ slice }: AllproductsProps): JSX.Element => {
 
 <div   className="hairProductsContainer w-full grid  portrait:grid-cols-1 landscape:grid-cols-3  gap-5 portrait:gap-[23vw] portrait:sm:gap-[20vw]   gap-y-20"> 
         {slice.primary.product.map((product:any,index:number) => (
+
+<InView as="div" onChange={(inView, entry) => opacityAnimation(productrefs.current[index],0.4,inView)}>
           <div
             key={product._id}
             id={product._id}
@@ -51,6 +66,8 @@ const Allproducts = ({ slice }: AllproductsProps): JSX.Element => {
             <div className="productDescription w-[20vw] portrait:w-full  cursor-pointer text-[1.19vw]  portrait:text-[4vw] portrait:sm:text-[3vw]">{product.writeup}</div>
             </div>
           </div>
+</InView>
+
         ))}
 
 
