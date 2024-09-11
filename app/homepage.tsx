@@ -58,7 +58,7 @@ export default function Homepage({Children}:any) {
    
     <div  
     id='banne-container'
-    className='w-[100vw] h-screen   absolute top-0 z-50'>
+    className='w-[100vw] h-screen overflow-y-hidden  absolute top-0 z-50'>
 
       <div className='grid-container absolute z-40 '>
  <GridAnimation/>

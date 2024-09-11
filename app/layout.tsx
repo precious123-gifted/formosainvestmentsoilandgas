@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="overflow-x-hidden bg-[#EEF4F8] ">
+      <body className="overflow-x-hidden bg-[#EEF4F8] landscape:overflow-y-hidden">
   <StateProvider>      
 <RefsProvider>
         <Header/>
