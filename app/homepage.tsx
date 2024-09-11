@@ -6,6 +6,8 @@ import { useStateContext } from './StateManager';
 import Template from './template';
 import { useRouter } from 'next/navigation';
 import gsap from "gsap"
+import GridAnimation from './components/GridAnimation'
+
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
 
 
@@ -70,9 +72,14 @@ export default function Homepage({Children}:any) {
   return (
 
     <>
+   
     <div  
     id='banne-container'
     className='w-[100vw] h-screen   absolute top-0 z-50'>
+
+      <div className='grid-container absolute z-40 '>
+ <GridAnimation/>
+      </div>
     <div
         id="banne-1"
         className="min-h-screen bg-[#080e0f] "

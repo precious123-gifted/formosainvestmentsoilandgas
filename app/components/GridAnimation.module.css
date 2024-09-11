@@ -1,0 +1,23 @@
+/* GridAnimation.module.css */
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+    grid-gap: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .gridItem {
+    /* Define styles for grid items (background, size, etc.) */
+    height: 10vw;
+    animation: none; /* Remove default animation if any */
+  }
+  
+  .fadein {
+    animation: fadeIn 2s ease-in-out forwards; /* Define animation for fade-in */
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0.1; }
+    to { opacity: 0.7; }
+  }
