@@ -344,16 +344,18 @@ const lastLink = '/about'
   return(
       
 <div  key={key} 
+
+ >
+  <div onClick={menuBackAnimation}
  className={cn(
   'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] bg-[#FBFFFE] transition duration-300 ease-in-out text-[#0D2323] ',
    logic && 'bg-[#162226] text-[#e8f7ed] hover:text-[#e0f3e6]  shadow-lg ' 
-)}
- >
+)}>
 <TransitionLink href={link}
 
 
  >{label}</TransitionLink>
-
+</div>
 </div>
 
 )})}
