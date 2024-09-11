@@ -9,6 +9,7 @@ import facebookIcon from "../../public/facebookIcon.png";
 import footerBG from "../../public/footer_bg.png"
 import formosaIMG from "../../public/FORMOSA.png"
 import Link from "next/link";
+import TransitionLink from "./TransitionLink";
 
 
 
@@ -46,8 +47,8 @@ let about = '/about'
 
 <div className="addressDiv  space-y-1">
   <div className="title text-[1.7vw] portrait:sm:text-[4vw] portrait:text-[7vw]">About Us</div>
- <Link href={'/about'}> <div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw] ">Who We Are</div></Link>
- <Link href={'/missionandvision'}><div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">Mission and Vision</div></Link>
+ <TransitionLink href={'/about'}> <div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw] ">Who We Are</div></TransitionLink>
+ <TransitionLink href={'/missionandvision'}><div className="address text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">Mission and Vision</div></TransitionLink>
 </div>
 
 
@@ -76,10 +77,10 @@ let about = '/about'
 
 <div className="icons flex flex-col "> 
 
-<Link  href={`tel:+23414537731`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">+23414537731-2</div></Link>
-<Link  href={`tel:+23414537731`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">+3168686421383</div></Link>
-<Link  href={`mailto:info@formosa6js.com`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">info@formosa6js.com</div></Link>
-<Link  href={`mailto:formosa6js@gmail.com`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">formosa6js@gmail.com</div></Link>
+<TransitionLink  href={`tel:+23414537731`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">+23414537731-2</div></TransitionLink>
+<TransitionLink  href={`tel:+23414537731`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">+3168686421383</div></TransitionLink>
+<TransitionLink  href={`mailto:info@formosa6js.com`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">info@formosa6js.com</div></TransitionLink>
+<TransitionLink  href={`mailto:formosa6js@gmail.com`} ><div className="text-[1.2vw]  portrait:sm:text-[3vw] portrait:text-[5vw]">formosa6js@gmail.com</div></TransitionLink>
 
 
 
