@@ -11,12 +11,14 @@ import GridAnimation from './components/GridAnimation'
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
 
 
-const animateHomeIn = () => {
+
+function animateHomeIn () {
   const bannerOne = document.getElementById("banne-1")
   const bannerTwo = document.getElementById("banne-2")
   const bannerThree = document.getElementById("banne-3")
   const bannerFour = document.getElementById("banne-4")
   const bannerContainer = document.getElementById("banne-container");
+
 
   if (bannerOne && bannerTwo && bannerThree && bannerFour) {
     const tl = gsap.timeline();
@@ -33,29 +35,7 @@ const animateHomeIn = () => {
   }
 };
 
-// export const animatePageOut = (href: string, router: AppRouterInstance) => {
-//   const bannerOne = document.getElementById("banne-1")
-//   const bannerTwo = document.getElementById("banne-2")
-//   const bannerThree = document.getElementById("banne-3")
-//   const bannerFour = document.getElementById("banne-4")
-//   const bannerContainer = document.getElementById("banne-container")
-
-//   if (bannerOne && bannerTwo && bannerThree && bannerFour) {
-//     const tl = gsap.timeline()
-
-//     tl.set([bannerOne, bannerTwo, bannerThree, bannerFour], {
-//       yPercent: -100,
-//     }).to([bannerOne, bannerTwo, bannerThree, bannerFour], {
-//       yPercent: 0,
-//       stagger: 0.2,
-//       onComplete: () => {
-// gsap.to(bannerContainer,{display:'none',pointerEvents:'none'})
-         
-//       },
-//     })
-//   }
-// }
-
+ 
 
 export default function Homepage({Children}:any) {
 
@@ -65,9 +45,12 @@ export default function Homepage({Children}:any) {
   const router = useRouter();
 
   useEffect(() => {
-    if(oilDataState === 201){animateHomeIn()}
-    
-  }, [oilDataState])
+    if (oilDataState === 201) {
+      router.replace('/');
+      window.scrollTo(0, 0); // Scroll to the top
+      animateHomeIn();
+    }
+  }, [oilDataState]);
 
   return (
 
