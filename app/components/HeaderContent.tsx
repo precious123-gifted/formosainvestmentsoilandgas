@@ -246,7 +246,7 @@ serviceListAnimation()
                     {serviceDropdownItems.map((item, index) => (
 
                       <div key={index} 
-                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
+                       className="block px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-[#fcffff] hover:text-gray-900" 
                        role="menuitem"
                       >
 <TransitionLink href={item.link}>
@@ -266,8 +266,8 @@ serviceListAnimation()
               const logic = !isActiveChild ? isActive : isActiveChild
               return(
                 <div key={key}   className={cn(
-                      'px-3 py-2 h-full rounded hover:bg-[#e0f3e6] transition duration-300 ease-in-out text-[#0D2323] ',
-                      logic && 'bg-[#080e0f] text-[#c3cfc7] hover:text-[#e0f3e6] shadow-lg',
+                      'px-3 py-2 h-full rounded cursor-pointer hover:bg-[#e0f3e6] transition duration-300 ease-in-out text-[#0D2323] ',
+                      logic && 'bg-[#292f30] text-[#c3cfc7] hover:text-[#e0f3e6] ',
                       
                     )}> <TransitionLink href={link}
                     
