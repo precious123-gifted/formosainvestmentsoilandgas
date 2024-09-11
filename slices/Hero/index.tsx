@@ -69,7 +69,6 @@ setTimeout(() => {
   // const oilDataState = localStorage.getItem('oilDataState');
   console.log(`this is the oil data from hero slice : `+oilDataState)  
 
-      setTimeout(() => {
             
       if(isLandscape)  displayElementWhenPageLoads(button,0.5,750)
         displayElementWhenPageLoads(header,0.5,460)
@@ -78,7 +77,6 @@ setTimeout(() => {
 
 console.log(oilDataState)  
 localStorage.removeItem('oilDataState');
-      }, 4800);
 
 
   

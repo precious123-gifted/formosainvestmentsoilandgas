@@ -96,7 +96,6 @@ export default function HeaderContent({settings}: any) {
     
     
     if(oilDataState === 201){
-       setTimeout(() => {
   displayElementWhenPageLoads(logo,0.5,110) 
 displayElementWhenPageLoads(oilPriceContainer,0.5,130)
         displayElementWhenPageLoads(desktoplinks,0.5,150)
@@ -106,7 +105,6 @@ displayElementWhenPageLoads(oilPriceContainer,0.5,130)
   displayElementWhenPageLoads(oilPriceContainerPortrait,0.5,150)
  
 }
-},5100);
  }
 
 
