@@ -21,12 +21,12 @@ const TransitionLink: React.FC<TransitionLinkProps> = ({ href, children }) => {
   };
 
   return (
-    <button
+    <div
       className=""
       onClick={handleClick}
     >
       {children} {/* Render children instead of label */}
-    </button>
+    </div>
   );
 };
 

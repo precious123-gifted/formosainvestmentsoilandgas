@@ -14,6 +14,7 @@ import { InView } from "react-intersection-observer";
 import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import { useStateContext } from "@/app/StateManager";
+import TransitionLink from "@/app/components/TransitionLink";
 gsap.registerPlugin(ScrollTrigger)
 
 
@@ -279,7 +280,7 @@ const splitheaderrefs = useRef<SplitHeaderRef[]>([]);
 
 
   <button ref={button} className="button opacity-0 btn-div  h-[20vw]  w-full flex justify-center items-center"> 
- <Link href={"/products"}> <div className=" landscape:bg-[#080e0f] landscape:text-[#e8f3f0] portrait:text-[#080e0f] portrait:bg-[#e8f3f0]  cursor-pointer px-8 py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#d1f1f3] hover:text-[#080e0f] duration-[0.8s]  ease-in-out ">Check Our Products</div> </Link> 
+ <TransitionLink href={"/products"}> <div className=" landscape:bg-[#080e0f] landscape:text-[#e8f3f0] portrait:text-[#080e0f] portrait:bg-[#e8f3f0]  cursor-pointer px-8 py-3 rounded-[0.280rem] text-[2vw] portrait:text-[8vw] hover:bg-[#d1f1f3] hover:text-[#080e0f] duration-[0.8s]  ease-in-out ">Check Our Products</div> </TransitionLink> 
   
    </button>
 
